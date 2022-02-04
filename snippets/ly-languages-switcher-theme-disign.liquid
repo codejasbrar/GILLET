@@ -1,0 +1,24 @@
+<div class="select position-relative js-dropdownHOLD js-selectHOLD" data-onload-check>
+    <div class="d-flex align-items-center" data-js-dropdown-buttonHOLD>
+        <select class="p-0 px-5 pl-lg-0 pr-lg-20 mt-lg-4 mb-0 border-0 cursor-pointer ly-languages-switcher" id="ly-languages-switcher">
+            {%- assign dropdown_options = null -%}
+            {%- for language in shop.metafields.languages -%}
+                {%- assign key = language | first -%}
+                {%- assign value = language | last -%}
+                {%- if key != "default" -%}
+                    <option value="{{ key }}">{{ value }}</option>
+                    {%- capture dropdown_options -%}
+                        {{ dropdown_options }}
+                        <span data-value="{{ key }}">{{ value }}</span>
+                    {%- endcapture -%}
+                {%- endif -%}
+            {%- endfor -%}
+        </select>
+        <i class="d-none d-lg-inline position-absolute right-0">{% render 'icon-theme-229' %}</i>
+    </div>
+    <div class="select__dropdown dropdown d-none position-lg-absolute top-lg-100 right-lg-0" data-js-dropdown data-js-select-dropdown>
+        <div class="px-15 pb-30 py-lg-15">
+            {{ dropdown_options }}
+        </div>
+    </div>
+</div>

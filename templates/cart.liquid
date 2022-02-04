@@ -1,0 +1,393 @@
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+ <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+{% comment %}{% include 'breadcrumbs' %}{% endcomment %}
+{%- if settings.product_format_pjpg -%}
+    {%- assign image_format = 'pjpg' -%}
+{%- else -%}
+    {%- assign image_format = null -%}
+{%- endif -%} 
+{%- if cart.item_count > 0 -%}
+{% comment %}<h1 class="h3 mt-20 mb-30 text-center">{{ 'cart.general.title' | t }}</h1> {% endcomment %}
+<div class="cart pb-60 pb-lg-70" data-ajax-enabled="{{ section.settings.cart_ajax_enable }}">
+    <div class="container-fluid cart-container">
+        {%- if cart.item_count > 0 -%}
+            <form action="/cart" method="post" novalidate>
+                <div class="row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="cart__items">
+                            <div class="cart__head pb-10 border-bottom">
+                                <div class="row">
+                                    <div class="d-none d-sm-block col-sm-2 col-lg-4 col-xl-2 d-none"><label class="m-0">Items</label></div>
+                                   <div class="d-none col-sm-5 col-lg-4 col-xl-2 co-12 d-block d-block d-sm-none"><label class="m-0 mobile-cart-label">Product Details</label></div>
+                                  <div class="d-none d-sm-block col-sm-7 col-lg-4 col-xl-7 d-none"><label class="m-0">Description</label></div>
+                                    <div class="col-sm-3 col-lg-8 col-xl-3 d-none d-sm-block">
+                                        <div class="row">
+                                            {% comment %}<div class="col col-sm-4 col-lg-4"><label class="m-0">{{ 'cart.label.price' | t }}</label></div>{% endcomment %}
+                                            <div class="col col-sm-6 col-lg-6 text-center text-lg-left"><label class="m-0">Quantity</label></div>
+                                            <div class="col col-sm-6 col-lg-6 text-right"><label class="m-0">Price</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {%- for item in cart.items -%}
+                                <div class="py-10 border-bottom-black paddingTopArea">
+                                    <div class="row d-flex  flex-column flex-sm-row no-flex-mobile">
+                                        <div class="col-sm-2 col-lg-4 col-xl-2 d-flex align-items-center mb-20 mb-sm-0 col-3 image_cart">
+                                           
+                                            <div class="d-flex align-items-center align-items-sm-start align-items-xl-center flex-sm-column flex-xl-row w-100">
+                                                {%- if item.image != blank -%}
+                                                    <a href="{{ item.url | within: collections.all }}" class="cart__image mb-sm-15 mb-xl-0 mr-20 mr-sm-0 mr-xl-20">
+                                                        {% render 'rimage' with image: item.image size: '150x' format: image_format attr: 'class="w-100"' %}
+                                                    </a>
+                                                {%- endif -%}
+                                                
+                                            </div>
+                                        </div>
+                                       
+                                       <div class="col-sm-7 col-lg-4 col-xl-7 col-4  cart-name">
+                                         	
+                                         <div class="{% comment %}d-flex flex-column{% endcomment %} cart_title_td">
+                                                    <a href="{{ item.url }}">{{ item.product.title }}</a>
+                                          
+                                           			{% comment %}
+                                                    {%- unless item.product.has_only_default_variant -%}
+                                                        <p class="mb-0">{{ item.variant.title }}</p>
+                                                    {%- endunless -%}{% endcomment %}
+                                                    {%- if settings.cart_show_vendor -%}
+                                                        <p class="mt-10 mb-0">
+                                                            <a href="/collections/{{ item.collections.first.handle }}q=vd_:{{ item.vendor | remove: '"' | replace: '&', '%26' }}">{{ item.vendor }}</a>
+                                                        </p>
+                                                    {%- endif -%}
+                                                 
+                                                 
+                                                    {%- assign property_size = item.properties | size -%}
+                                                    {%- if property_size > 0 -%}
+                                                        {%- for p in item.properties -%}
+                 
+                                                            <p class="mt-10 mb-0">
+                                                                {%- unless p.last == blank -%}
+                                                                    <span>{{ p.first }}: </span>
+                                                                    {%- if p.last contains '/uploads/' -%}
+                                                                        <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                                                                    {%- else -%}
+                                                                        {{ p.last }}
+                                                                    {%- endif -%}
+                                                                {%- endunless -%}
+                                                            </p>
+                                                        {%- endfor -%}
+                                                    {%- endif -%}
+                                               
+                                                 
+{% unless item.product.has_only_default_variant %}
+
+    {% for option in item.options_with_values %}
+    
+{% if option.name contains "Size" %}
+
+    <p class="mb-0"><span class="spa_option">Size: </span>{{ option.value }}</p>
+    
+{% endif %}
+    
+     
+    {% endfor %}
+
+{% endunless %}
+                                               
+                                                </div>
+                                          <div class="Rem_sec">
+                                            <!--
+                                                   <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="mr-20">
+                                               REMOVE
+                                            </a>
+                                            -->
+                                            
+                                            <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent mr-20" >REMOVE</a>
+                  
+                                             </div>
+                                         
+                                       </div>
+                                      
+                                      
+                                        <div class="col-sm-3 col-lg-8 col-xl-3 col-5 ">
+                                            <div class="row d-flex align-items-center">
+                                               {% comment %} <div class="col col-sm-4 col-lg-4">
+                                                    {% render 'product-get-price' with price: item.price compare_at_price: item.original_price %}
+                                                </div> {% endcomment %}
+                                                <div class="col col-sm-6 col-lg-6 col-6">
+                                                    
+                                                  
+                                                 <div class="number_quantity popup_quantity">
+                                                    <span class="minus qty-btn btnqty qtyminus">-</span>
+                                                   <!--
+                                                    <input class="mb-0 text-center text-sm-left qty_box" name="updates[]" type="text" id="updates_{{ item.key }}" value="{{ item.quantity }}"/>
+                                                     --> 
+                                                    <input type="text" name="updates[]" data-line_number="{{ forloop.index }}" data-quantity-input data-quantity-item="{{ forloop.index }}" data value="{{ item.quantity }}" min="1" id="updates_{{ item.key }}" class="mb-0 text-center text-sm-left qty_box qty-txt quantity-selector quantity-input line_quantity_{{ forloop.index }}" readonly>
+                      
+                                                    <span class="plus qty-btn btnqty qtyplus">+</span>
+                                                   
+                                            
+                                                   
+                                                </div>
+                                              
+                                              </div>
+                                                <div class="col col-sm-6 col-lg-6 col-6  text-right">
+                                                 {% comment %}
+                                                    {% render 'product-get-price'  with price: item.line_price compare_at_price: null %}
+                                                  {% endcomment %}
+                                                  
+                  
+                <span class="price" data-js-product-price="" data-js-show-sale-separator=""><span data-cart-item-regular-price class="line_price_{{ forloop.index }}">{{ item.original_line_price | money }}</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {%- endfor -%}
+                        </div>
+                        {%- if settings.cart_show_free_shipping -%}
+                            <div class="pt-20">
+                                {% render 'free-shipping' %}
+                            </div>
+                        {%- endif -%}
+                        <div class="d-flex pt-25 conti-shop-btn">
+                            <a href="/collections/all" class="btn btn--text text-left">
+                                <i class="mb-4 mr-4">{% render 'icon-theme-012' %}</i>{{ 'cart.general.continue_shopping' | t }}
+                            </a>
+                          {% comment %}
+                            <button type="submit" class="btn btn--text text-left ml-auto" name="update">
+                                <i class="mb-4 mr-4">{% render 'icon-theme-010' %}</i>{{ 'cart.general.update' | t }}
+                            </button>
+                          {% endcomment %}
+                        </div>
+                        {%- if settings.app_klarna_enable -%}
+                            <div class="klarna-message-cart"></div>
+                        {%- endif -%}
+                    </div>
+                  
+                  <div class="col-sm-6  col-lg-4 col-xl-7 mt-25 mt-lg-0" id="order_notes">
+                    
+                  
+                                <div class="pt-15">
+                                    <p class="field mb-15">
+                                        <label for="CartSpecialInstructions" class="mb-0 orderlabel">Order Notes</label>
+                              
+                                    </p>
+                                    <textarea name="note" id="CartSpecialInstructions" rows="4">{{ cart.note }}</textarea>
+                                </div>
+                           
+                    
+                  </div>
+                  
+                    <div class="col-sm-6 col-lg-4 col-xl-5 mt-25 mt-lg-0 remove_margin">
+                        <aside class="cart__sidebar p-20 ">
+                           {% comment %} <h3 class="h5 mb-20">{{ 'cart.general.sidebar_title' | t }}</h3>{% endcomment %}
+                            <div class="border-bottomed border--dasheded">
+                                {%- unless settings.shipping_calculator == 'Disabled' -%}
+                                    <div id="shipping-calculator">
+                                        <h3 class="h6 mb-10">{{ 'cart.general.shipping_calculator_heading' | t }}</h3>
+                                        <p class="mb-10">{{ 'cart.general.shipping_calculator_heading_paragraph' | t }}</p>
+                                        <div>
+                                            <p class="field">
+                                                <label for="address_country" class="label-required">{{ 'cart.general.shipping_country_title' | t }}</label>
+                                                <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+                                            </p>
+                                            <p class="field" id="address_province_container" style="display:none;">
+                                                <label for="address_province" id="address_province_label" class="label-required text-uppercase">{{ 'cart.general.shipping_province_title' | t }}</label>
+                                                <select id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+                                            </p>
+                                            <p class="field">
+                                                <label for="address_zip" class="label-required">{{ 'cart.general.shipping_zip_title' | t }}</label>
+                                                <input type="text" id="address_zip" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} placeholder="{{ 'cart.general.shipping_zip_placeholder' | t }}"/>
+                                            </p>
+                                            <p class="field">
+                                                <div class="get-rates btn btn--text h-auto px-0 button text-underline">{{ 'cart.general.shipping_calculator_submit_button_label' | t }}</div>
+                                            </p>
+                                        </div>
+                                        <p class="shipping-calculator-info d-none mb-10"></p>
+                                        <div id="wrapper-response"></div>
+                                    </div>
+                                    <script>
+                                        Loader.require({type: "script", name: "plugin_shipping_rates_calculation"});
+                                        Loader.require({type: "script", name: "shipping_rates_calculation"});
+                                    </script>
+                                    <script id="shipping-calculator-response-template" type="text/template">
+                                        {% raw %}
+                                            <p id="shipping-rates-feedback" {{#if success}} class="success" {{else}} class="error" {{/if}}>
+                                            {{#if success}}
+                                            {{#if rates}}
+                                            {{#rates}}
+                                            {{#if @first}}
+                                            Rates start at {{price}}.
+                                            {{/if}}
+                                            {{/rates}}
+                                            {{else}}
+                                            We do not ship to this destination.
+                                            {{/if}}
+                                            {{else}}
+                                            {{ errorFeedback }}
+                                            {{/if}}
+                                            </p>
+                                        {% endraw %}
+                                    </script>
+                                {%- endunless -%}
+                            </div>
+                           
+                            <div class="pt-15 remove_padding" >
+                                {%- if cart.cart_level_discount_applications.size > 0 -%}
+                                    <h5 class="d-none mb-3">{{ 'customer.order.discount' | t }}</h5>
+                                    {%- for discount_application in cart.cart_level_discount_applications -%}
+                                        <div class="cart__discount h6 d-flex align-items-center mb-15">
+                                            <span class="d-flex align-items-center mr-10">
+                                                <i class="mt-2 mr-6">{% include 'icon-theme-137' %}</i> <span>{{ discount_application.title | upcase }}</span>
+                                            </span>
+                                            <span class="h5 d-flex align-items-center mb-0 ml-auto">
+                                                <span class="mb-2">-</span><span>{{ discount_application.total_allocated_amount | money }}</span>
+                                            </span>
+                                        </div>
+                                    {%- endfor -%}
+                                {%- endif -%}
+                                {%- if cart.total_discounts > 0 -%}
+                                    <div class="cart__total-discounts mb-20">
+                                        <h5 class="mb-3">{{ 'cart.general.savings' | t }}</h5>
+                                        <h3 class="mb-0">{{ cart.total_discounts | money }}</h3>
+                                    </div>
+                                {%- endif -%}
+                              
+                              	 <div class="cart__subtotal shipping_time_cart cart_">
+                                    <h5 class="mb-0">Shipping:</h5>
+                                    <h3 class="mb-0 cart-subtotal__price">{{ 0000 | money }}</h3>
+                                </div>
+                                <div class="cart__subtotal shipping_time_cart cart_">
+                                    <h5 class="mb-0">Tax & Duties:</h5>
+                                    <h3 class="mb-0 cart-subtotal__price">{{ 0000 | money }}</h3>
+                                </div>
+                              
+                                <div class="cart__subtotal mt-20 mb-20">
+                                    <h5 class="mb-3">Total:</h5>
+                                    <h3 class="mb-0 cart-subtotal__price">{{ cart.total_price | money }}</h3>
+                                </div>
+                               {% comment %} <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>{% endcomment %} 
+                                <input type="submit" class="btn btn--full btn--secondary" name="checkout" value="{{ 'cart.general.checkout' | t }}">
+                            </div>
+                        </aside>
+                    </div>
+              
+                               {% comment %} <div class="col-sm-6  col-lg-4 col-xl-7 mt-25 mt-lg-0 mobile">
+                    
+                  
+                                <div class="pt-15">
+                                    <p class="field mb-15">
+                                        <label for="CartSpecialInstructions" class="mb-0 orderlabel">Order Notes</label>
+                              
+                                    </p>
+                                    <textarea name="note" id="CartSpecialInstructions" rows="4">{{ cart.note }}</textarea>
+                                </div>
+                           
+                    
+                  </div>  {% endcomment %}
+                </div>
+            </form>
+        {%- endif -%}
+    </div>
+</div>
+{%- else -%}
+    <div class="cart d-flex flex-column align-items-center py-40 py-md-100 my-100">
+        <h1 class="h3">{{ 'cart.general.empty_title' | t }}</h1>
+        <p>{{ 'cart.general.empty_paragraph' | t }}</p>
+        <a href="/collections/all" class="cart__btn-empty empty-btn btn mt-20">{{ 'cart.general.empty_button' | t }}</a>
+    </div>
+{%- endif -%}
+
+
+<script>
+  /*
+  	$(document).ready(function() {
+			$('.minus').click(function () {
+				var $input = $(this).parent().find('input');
+				var count = parseInt($input.val()) - 1;
+				count = count < 0 ? 0 : count;
+				$input.val(count);
+				$input.change();
+				return false;
+			});
+			$('.plus').click(function () {
+				var $input = $(this).parent().find('input');
+				$input.val(parseInt($input.val()) + 1);
+				$input.change();
+				return false;
+			});
+		});
+  
+  */
+  
+  
+  
+  
+$('.btnqty').on('click', function(){
+  var qty = parseInt($(this).parent('.popup_quantity').find('.quantity-input').val());
+  var line = $(this).parent('.popup_quantity').find('.quantity-input').data('line_number');
+
+  if($(this).hasClass('qtyplus')) {
+    qty++;
+  }else {
+    if(qty > 1) {
+      qty--;
+    }
+  }
+  qty = (isNaN(qty))?1:qty;
+  const quantity = qty;
+  $.ajax({
+    type: 'POST',
+    url: '/cart/change.js',
+    data: 'quantity=' + quantity + '&line=' + line,
+    dataType: 'json',
+    success: function(cart,xhr) {
+      console.log(cart);
+      console.log(xhr);
+      if (xhr == 'success') {
+        console.log(cart.total_price);
+        
+         // const total_price = theme.Currency.formatMoney(cart.total_price, theme.moneyFormat);
+       
+        const total_price = '{{ cart.currency.symbol }}'+(cart.total_price/100).toFixed(2);
+        $('.cart-subtotal__price').text(total_price);
+        //$('.sliding-sidebar-header h4 span').text('('+cart.item_count+' items)');
+      //  $('[data-cart-count]').text(cart.item_count);
+        
+        
+          for(var i =0; i < cart.items.length; i++){   
+          //if (cart.items[i].id == line ) 
+          if(i==(line-1))  
+          {
+           // input.val(parseInt(cart.items[i].quantity));
+          //  $('.line_price_'+line).html(theme.Currency.formatMoney(cart.items[i].final_line_price,theme.moneyFormat));
+            var line_price='{{ cart.currency.symbol }}'+(cart.items[i].final_line_price/100).toFixed(2);
+            $('.line_price_'+line).html(line_price);
+           
+            var line_quantity=cart.items[i].quantity;
+             $('.line_quantity_'+line).val(line_quantity);
+            changed = true;
+            break;
+          };
+        }
+        
+       
+       
+        
+
+      } 
+    }
+  });
+ // $(this).parent('.popup_quantity').find('.quantity-input').val(qty);
+}); 
+
+  
+  
+</script>
+
+<style>
+  div#shopify-section-footer {
+    display: none;
+}
+</style>

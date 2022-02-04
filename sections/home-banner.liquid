@@ -1,0 +1,100 @@
+<style>
+  
+  .banner_container{
+   width:100%;
+   float:left;
+  }
+  
+  .home-banner-img{
+    width:50%;
+    float:left;
+  }
+  
+</style>  
+
+<div class="banner_container">
+  <div class="home-banner-img">
+     <img class="img-fluid" src="{{ section.settings.banner_img1 | img_url: 'master' }}" alt="home banner img">
+      <div class="home-banner--caption__title">
+         {{ section.settings.title1 }}
+      </div>
+      <div class="home-banner--caption__title">
+        <a href="{{ section.settings.text_url1 }}">{{ section.settings.sub_title1 }}</a>
+      </div>
+  </div>
+  <div class="home-banner-img">
+     <img class="img-fluid" src="{{ section.settings.banner_img2 | img_url: 'master' }}" alt="home banner img">
+      <div class="home-banner--caption__title">
+         {{ section.settings.title2 }}
+      </div>
+      <div class="home-banner--caption__title">
+        <a href="{{ section.settings.text_url2 }}">{{ section.settings.sub_title2 }}</a>
+      </div>
+  </div> 
+</div>  
+
+
+{% schema %}
+  {
+    "name": "Home banner",
+    "settings": [
+
+        {
+            "type": "image_picker",
+            "id": "banner_img1",
+            "label": "Banner Image 1"
+        },
+        {	
+            "type": "text",
+            "id": "title1",
+            "label": "Title"
+        },
+        {	
+            "type": "text",
+            "id": "sub_title1",
+            "label": "Sub Text"
+        },
+        {	
+            "type": "url",
+            "id": "text_url1",
+            "label": "Sub Text Link"
+        },
+
+        {
+            "type": "image_picker",
+            "id": "banner_img2",
+            "label": "Banner Image 2"
+        },
+        {	
+            "type": "text",
+            "id": "title2",
+            "label": "Title"
+        },
+        {	
+            "type": "text",
+            "id": "sub_title2",
+            "label": "Sub Text"
+        },
+        {	
+            "type": "url",
+            "id": "text_url2",
+            "label": "Sub Text Link"
+        }
+
+
+
+   ],
+    "presets": [
+        {
+            "name": "Home banner",
+            "category": "Image"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

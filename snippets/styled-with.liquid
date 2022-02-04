@@ -1,0 +1,122 @@
+<div class="styled-with">
+	
+  <div class="container1">
+  
+    <div class="style-with-grid-title">
+    	
+      <h1>Styled With</h1>
+    
+    </div>
+    
+    <div class="col-full-styled carousel-main">
+      
+      {% assign selected_handles = product.metafields.accentuate.choosed_products | split: '|' %}
+          {% for selected_handle in selected_handles %}
+       
+      
+      		
+      		<div class="styled-grid ">
+
+           <div class="styled-media styled_slider {{ forloop.index }}">
+
+              <img src="{{ all_products[selected_handle].featured_image | img_url: 'master' }}">
+			  <img src="{{ all_products[selected_handle].featured_image | img_url: 'master' }}">
+
+               <img src="{{ all_products[selected_handle].featured_image | img_url: 'master' }}">
+
+               <img src="{{ all_products[selected_handle].featured_image | img_url: 'master' }}">
+
+             
+             
+            </div>
+
+            <a href="{{ all_products[selected_handle].url }}">
+              
+              <div class="styled-product-description">
+              <div class="product-title">
+                <p>{{ all_products[selected_handle].title }}</p>
+              </div>
+
+              <div class="product-price">
+                <p>{{ all_products[selected_handle].price | money }}</p>
+              </div>
+
+              </div>
+              
+            </a>
+              
+              
+
+
+          </div>
+      
+      	{% else %}
+      
+      <p class="no-products">No Product!</p>
+      
+      
+          {% endfor %}
+    
+      
+      
+      </div>
+    
+  </div>
+
+</div>
+
+<script>
+      
+$('.styled_slider').slick({
+  dots: true,
+  arrows:false,
+  infinite: false,
+   speed: 100,
+   autoplay: false,
+  slidesToShow: 1
+});
+   
+  
+    $('.carousel-main').slick({
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 4000,
+    dots:false,
+        infinite: false,
+      arrows:false,
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // centerMode: true,
+
+      } 
+
+    }, {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        dots:false,
+      arrows:false,
+        infinite: false,
+
+      }
+    },  {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        dots:false,
+      arrows:false,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 4000,
+      }
+    }]
+  });
+      
+ </script>

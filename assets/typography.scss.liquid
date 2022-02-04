@@ -1,0 +1,2082 @@
+@charset "UTF-8";
+
+//variables
+/* VARIABLES */
+//body
+{%- assign body_line_height = settings.font_size_body | times: 1.307 | round -%}
+{%- assign body_letter_spacing = 0 -%}
+
+//body large
+{%- assign body_lg_font_size = settings.font_size_body | times: 1.153 | round  -%}
+{%- assign body_lg_line_height = body_lg_font_size | times: 1.533 | round  -%}
+{%- assign body_lg_letter_spacing = 0 -%}
+
+//h1
+{%- assign h1_line_height = settings.font_size_h1 | times: 1.09 | round -%}
+{%- assign h1_letter_spacing = 0.05 -%}
+{%- assign h1_weight = settings.font_heading.weight -%}
+
+//h2
+{%- assign h2_line_height = settings.font_size_h2 | times: 1.093 | round -%}
+{%- assign h2_letter_spacing = 0.05 -%}
+{%- assign h2_weight = settings.font_heading.weight -%}
+
+//h3
+{%- assign h3_line_height = settings.font_size_h3 | times: 1.291 | round -%}
+{%- assign h3_letter_spacing = 0 -%}
+{%- assign h3_weight = settings.font_heading.weight -%}
+
+//h4
+{%- assign h4_line_height = settings.font_size_h4 | times: 1.333 | round -%}
+{%- assign h4_letter_spacing = 0 -%}
+{%- assign h4_weight = settings.font_heading.weight -%}
+
+//h5
+{%- assign h5_line_height = settings.font_size_h5 | times: 1.4 | round -%}
+{%- assign h5_letter_spacing = 0.05 -%}
+{%- assign h5_weight = settings.font_heading.weight -%}
+
+//h6
+{%- assign h6_line_height = settings.font_size_h6 | times: 1.307 | round -%}
+{%- assign h6_letter_spacing = 0 -%}
+{%- assign h6_weight = settings.font_heading.weight -%}
+
+//icons
+{%- assign icons_size = 20 -%}
+
+//list
+{%- assign list_font_size = settings.font_size_body | times: 1 | round  -%}
+{%- assign list_line_height = list_font_size | times: 1.796 | round -%}
+{%- assign list_letter_spacing = 0 -%}
+{%- assign list_weight = settings.font_base.weight -%}
+
+//large list
+{%- assign list_lg_font_size = settings.font_size_body | times: 1.153 | round  -%}
+{%- assign list_lg_line_height = list_lg_font_size | times: 1.4 | round -%}
+{%- assign list_lg_letter_spacing = 0 -%}
+{%- assign list_lg_weight = settings.font_base.weight -%}
+
+//button
+{%- assign button_line_height = settings.font_size_button | times: 1.076 | round -%}
+{%- assign button_letter_spacing = 0.05 -%}
+{%- assign button_weight = settings.font_base.weight -%}
+{%- assign button_transform = 'uppercase' -%}
+
+//input
+{%- assign input_line_height = settings.font_size_input | times: 1.307 | round -%}
+{%- assign input_letter_spacing = 0 -%}
+{%- assign input_weight = settings.font_base.weight -%}
+{%- assign input_transform = 'none' -%}
+
+//header
+{%- assign header_cart_weight = settings.font_base.weight -%}
+
+//menu
+{%- assign menu_font_size = settings.font_size_menu -%}
+{%- assign menu_line_height = menu_font_size | times: 1.076 | round -%}
+{%- assign menu_letter_spacing = 0.05 -%}
+{%- assign menu_weight = settings.font_menu.weight -%}
+{%- assign menu_transform = 'uppercase' -%}
+
+{%- assign menu_list_font_size = settings.font_size_menu_list -%}
+{%- assign menu_list_line_height = menu_list_font_size | times: 1.846 | round -%}
+{%- assign menu_list_letter_spacing = 0 -%}
+{%- assign menu_list_weight = settings.font_menu.weight -%}
+
+{%- assign menu_title_font_size = settings.font_size_menu_title -%}
+{%- assign menu_title_line_height = settings.font_size_menu_title | times: 1.4 | round -%}
+{%- assign menu_title_letter_spacing = 0.05 -%}
+{%- assign menu_title_weight = h5_weight -%}
+{%- assign menu_title_transform = 'uppercase' -%}
+
+{%- assign menu_main_mobile_line_height = settings.font_size_menu_mobile | times: 2.4 | round -%}
+{%- assign menu_main_mobile_letter_spacing = 0.05 -%}
+{%- assign menu_main_mobile_weight = settings.font_menu.weight -%}
+{%- assign menu_main_mobile_transform = 'uppercase' -%}
+
+{%- assign menu_secondary_mobile_line_height = settings.font_size_menu_mobile | times: 2.4 | round -%}
+{%- assign menu_secondary_mobile_letter_spacing = 0 -%}
+{%- assign menu_secondary_mobile_weight = settings.font_menu.weight -%}
+{%- assign menu_secondary_mobile_transform = 'none' -%}
+
+{%- assign vertical_menu_font_size = settings.font_size_menu -%}
+{%- assign vertical_menu_line_height = vertical_menu_font_size | times: 3 | round -%}
+{%- assign vertical_menu_letter_spacing = 0.05 -%}
+{%- assign vertical_menu_weight = settings.font_menu.weight -%}
+{%- assign vertical_menu_transform = 'uppercase' -%}
+{%- assign vertical_menu_icons_size = 24 -%}
+
+{%- assign vertical_menu_button_font_size = settings.font_size_menu -%}
+{%- assign vertical_menu_button_line_height = vertical_menu_button_font_size | times: 1.307 | round -%}
+{%- assign vertical_menu_button_letter_spacing = 0.05 -%}
+{%- assign vertical_menu_button_weight = button_weight -%}
+{%- assign vertical_menu_button_icons_size = 24 -%}
+
+//home sections
+{%- assign home_sections_title_font_size = settings.font_size_h4 -%}
+{%- assign home_sections_title_line_height = h4_line_height -%}
+{%- assign home_sections_title_letter_spacing = h4_letter_spacing -%}
+{%- assign home_sections_title_weight = h4_weight -%}
+
+//product
+{%- assign product_price_family = settings.font_base.family -%}
+{%- assign product_price_weight = settings.font_base.weight -%}
+
+{%- assign product_page_title_family = settings.font_base.family -%}
+{%- assign product_page_title_font_size = settings.font_size_h3 -%}
+{%- assign product_page_title_line_height = h3_line_height -%}
+{%- assign product_page_title_letter_spacing = h3_letter_spacing -%}
+{%- assign product_page_title_weight = h3_weight -%}
+{%- assign product_page_title_transform = 'none' -%}
+{%- assign product_page_fields_label_transform = 'uppercase' -%}
+{%- assign product_page_reviews_caption_transform = product_page_fields_label_transform -%}
+{%- assign product_page_options_label_transform = product_page_fields_label_transform -%}
+
+{%- assign product_collection_more_info_font_size = settings.font_size_h6 -%}
+{%- assign product_collection_more_info_line_height = h6_line_height -%}
+{%- assign product_collection_more_info_letter_spacing = h6_letter_spacing -%}
+{%- assign product_collection_more_info_weight = h6_weight -%}
+{%- assign product_collection_more_info_transform = 'none' -%}
+{%- assign product_collection_title_family = settings.font_base.family -%}
+{%- assign product_collection_title_font_size = settings.font_size_h6 -%}
+{%- assign product_collection_title_line_height = h6_line_height -%}
+{%- assign product_collection_title_letter_spacing = h6_letter_spacing -%}
+{%- assign product_collection_title_weight = h6_weight -%}
+{%- assign product_collection_button_font_size = settings.font_size_body -%}
+{%- assign product_collection_button_line_height = product_collection_button_font_size | times: 1.076 | round -%}
+{%- assign product_collection_button_letter_spacing = button_letter_spacing -%}
+{%- assign product_collection_button_weight = settings.font_base.weight -%}
+{%- assign product_collection_button_transform = button_transform -%}
+
+//collection
+{%- assign collection_head_title_family = settings.font_base.family -%}
+{%- assign collection_head_title_font_size = settings.font_size_h3  -%}
+{%- assign collection_head_title_line_height = h3_line_height -%}
+{%- assign collection_head_title_letter_spacing = h3_letter_spacing -%}
+{%- assign collection_head_title_weight = h3_weight -%}
+
+//article carousel
+{%- assign carousel_article_title_font_size = settings.font_size_h3 -%}
+{%- assign carousel_article_title_line_height = h3_line_height -%}
+{%- assign carousel_article_title_letter_spacing = h3_letter_spacing -%}
+{%- assign carousel_article_title_weight = h3_weight -%}
+
+//information line
+{%- assign information_line_type_1_title_font_size = settings.font_size_h6 -%}
+{%- assign information_line_type_1_title_line_height = h6_line_height -%}
+{%- assign information_line_type_1_title_letter_spacing = h6_letter_spacing -%}
+{%- assign information_line_type_1_title_weight = h6_weight -%}
+
+{%- assign information_line_type_2_title_font_size = settings.font_size_h4 -%}
+{%- assign information_line_type_2_title_line_height = h4_line_height -%}
+{%- assign information_line_type_2_title_letter_spacing = h4_letter_spacing -%}
+{%- assign information_line_type_2_title_weight = h4_weight -%}
+
+//footer
+{%- assign footer_menu_font_size = settings.font_size_body | times: 1 | round -%}
+{%- assign footer_menu_line_height = settings.font_size_body | times: 1.307 | round -%}
+{%- assign footer_menu_transform = 'none' -%}
+{%- assign footer_copyright_font_size = settings.font_size_body | times: 0.769 | round  -%}
+{%- assign footer_copyright_line_height = footer_copyright_font_size | times: 1.6 | round -%}
+
+//page
+{%- assign page_title_font_size = settings.font_size_h3 -%}
+{%- assign page_title_line_height = h3_line_height -%}
+{%- assign page_title_letter_spacing = h3_letter_spacing -%}
+
+/* SKINS */
+{%- if settings.typography_skin == 'home-18' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h2 -%}
+    {%- assign home_sections_title_line_height = h2_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign home_sections_title_weight = h2_weight -%}
+    {%- assign product_page_title_font_size = settings.font_size_h2 -%}
+    {%- assign product_page_title_line_height = h2_line_height -%}
+    {%- assign product_page_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign product_page_title_weight = h2_weight -%}
+    {%- assign product_page_title_transform = 'uppercase' -%}
+{%- elsif settings.typography_skin == 'skin-1' -%}
+    {%- assign h4_line_height = settings.font_size_h4 | times: 1.5 | round -%}
+    {%- assign h6_letter_spacing = 0.05 -%}
+    {%- assign product_page_reviews_caption_transform = 'normal' -%}
+    {%- assign product_page_options_label_transform = 'normal' -%}
+    {%- assign product_page_fields_label_transform = 'normal' -%}
+    {%- assign product_collection_title_letter_spacing = h6_letter_spacing -%}
+    {%- assign information_line_title_letter_spacing = h6_letter_spacing -%}
+
+    {% capture rewrite_body %}
+    .popup-subscription--layout-02 {
+        .popup-subscription__text-line-02 {
+            font-family: $alternative-family;
+        }
+    }
+    {% endcapture %}
+{%- elsif settings.typography_skin == 'skin-2' -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h3_weight = 'bold' -%}
+    {%- assign product_price_weight = h3_weight -%}
+    {%- assign product_page_title_weight = h3_weight -%}
+    {%- assign collection_head_title_weight = h3_weight -%}
+    {%- assign carousel_article_title_weight = h3_weight -%}
+{%- elsif settings.typography_skin == 'skin-3' -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 1.204 | round -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h3_line_height = settings.font_size_h3 | times: 1.458 | round -%}
+    {%- assign product_page_title_line_height = h3_line_height -%}
+    {%- assign collection_head_title_line_height = h3_line_height -%}
+    {%- assign carousel_article_title_line_height = h3_line_height -%}
+    {%- assign button_transform = 'none' -%}
+    {%- assign product_page_title_family = settings.font_alternative.family -%}
+    {%- assign product_collection_button_transform = button_transform -%}
+
+    {% capture rewrite_body %}
+    .popup-subscription--layout-03 {
+        .popup-subscription__text-line-02 {
+            font-family: $alternative-family;
+        }
+    }
+    {% endcapture %}
+{%- elsif settings.typography_skin == 'skin-4' -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h2_weight = 'bold' -%}
+    {%- assign h5_letter_spacing = 0 -%}
+    {%- assign button_letter_spacing = 0 -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign vertical_menu_button_weight = button_weight -%}
+    {%- assign button_transform = 'none' -%}
+    {%- assign product_collection_button_letter_spacing = button_letter_spacing -%}
+    {%- assign product_collection_button_transform = button_transform -%}
+{%- elsif settings.typography_skin == 'skin-5' -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h3_weight = 'bold' -%}
+    {%- assign h5_weight = 'bold' -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign vertical_menu_button_weight = button_weight -%}
+    {%- assign menu_letter_spacing = 0 -%}
+    {%- assign menu_weight = 'bold' -%}
+    {%- assign menu_transform = 'none' -%}
+    {%- assign menu_title_weight = h5_weight -%}
+    {%- assign vertical_menu_icons_size = 20 -%}
+    {%- assign product_price_weight = h3_weight -%}
+    {%- assign product_page_title_weight = h3_weight -%}
+    {%- assign collection_head_title_weight = h3_weight -%}
+    {%- assign carousel_article_title_weight = h3_weight -%}
+{%- elsif settings.typography_skin == 'skin-6' -%}
+    {%- assign h1_letter_spacing = 0 -%}
+{%- elsif settings.typography_skin == 'skin-7' -%}
+    {%- assign body_lg_font_size = settings.font_size_body | times: 1.2 | round  -%}
+    {%- assign body_lg_line_height = body_lg_font_size | times: 1.523 | round  -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 1.181 | round -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_weight = 'bold' -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h3_line_height = settings.font_size_h3 | times: 1.523 | round -%}
+    {%- assign h3_weight = 'bold' -%}
+    {%- assign h4_line_height = settings.font_size_h4 | times: 1.523 | round -%}
+    {%- assign h5_letter_spacing = 0.05 -%}
+    {%- assign h6_weight = 'bold' -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign button_letter_spacing = 0 -%}
+    {%- assign button_transform = 'none' -%}
+    {%- assign menu_transform = 'none' -%}
+    {%- assign product_page_title_family = settings.font_heading.family -%}
+    {%- assign product_page_title_font_size = settings.font_size_h1 -%}
+    {%- assign product_page_title_line_height = h1_line_height -%}
+    {%- assign product_page_title_letter_spacing = h1_letter_spacing -%}
+    {%- assign product_page_title_weight = h1_weight -%}
+    {%- assign product_page_fields_label_transform = 'none' -%}
+    {%- assign product_page_reviews_caption_transform = product_page_fields_label_transform -%}
+    {%- assign product_page_options_label_transform = product_page_fields_label_transform -%}
+    {%- assign product_collection_button_letter_spacing = button_letter_spacing -%}
+    {%- assign product_collection_button_transform = button_transform -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h2 -%}
+    {%- assign home_sections_title_line_height = h2_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign home_sections_title_weight = h2_weight -%}
+    {%- assign collection_head_title_font_size = settings.font_size_h1  -%}
+    {%- assign collection_head_title_line_height = h1_line_height -%}
+    {%- assign collection_head_title_letter_spacing = h1_letter_spacing -%}
+    {%- assign collection_head_title_weight = h1_weight -%}
+
+    {% capture rewrite_body %}
+    .popup-subscription--layout-01 {
+        .popup-subscription__text-line-01 {
+            font-family: $heading-family;
+            font-weight: bold;
+        }
+        .popup-subscription__text-line-02 {
+            font-family: $heading-family;
+            font-size: $body-lg-size;
+            line-height: $body-lg-line-height;
+        }
+    }
+    {% endcapture %}
+{%- elsif settings.typography_skin == 'skin-8' -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 0.844 | round -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_weight = 'bold' -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h3_weight = 'bold' -%}
+    {%- assign h4_weight = 'bold' -%}
+    {%- assign h5_weight = 'bold' -%}
+    {%- assign h6_weight = 'bold' -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign menu_title_weight = h5_weight -%}
+    {%- assign vertical_menu_button_weight = button_weight -%}
+    {%- assign product_collection_button_weight = button_weight -%}
+    {%- assign product_price_weight = 'bold' -%}
+    {%- assign home_sections_title_weight = h4_weight -%}
+    {%- assign collection_head_title_weight = h3_weight -%}
+
+    {% capture rewrite_body %}
+    .popup-subscription--layout-02 {
+        .popup-subscription__text-line-02 {
+            font-size: $h1-size;
+            line-height: $h1-line-height;
+            font-weight: bold;
+        }
+    }
+    {% endcapture %}
+{%- elsif settings.typography_skin == 'skin-9' -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 1.305 | round -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h3_line_height = settings.font_size_h3 | times: 1.305 | round -%}
+    {%- assign h4_line_height = settings.font_size_h4 | times: 1.306 | round -%}
+    {%- assign h5_line_height = settings.font_size_h5 | times: 1.414 | round -%}
+    {%- assign h6_weight = 'normal' -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign header_cart_weight = 'bold' -%}
+    {%- assign vertical_menu_weight = 'bold' -%}
+    {%- assign vertical_menu_icons_size = 20 -%}
+    {%- assign vertical_menu_button_font_size = settings.font_size_h4 -%}
+    {%- assign vertical_menu_button_line_height = vertical_menu_button_font_size | times: 1.277 | round -%}
+    {%- assign vertical_menu_button_weight = button_weight -%}
+    {%- assign product_price_weight = 'bold' -%}
+    {%- assign product_page_title_weight = 'normal' -%}
+    {%- assign product_collection_title_font_size = settings.font_size_h5 -%}
+    {%- assign product_collection_title_line_height = h5_line_height -%}
+    {%- assign product_collection_title_letter_spacing = 0 -%}
+    {%- assign product_collection_title_weight = 'normal' -%}
+    {%- assign product_collection_button_font_size = settings.font_size_h5 -%}
+    {%- assign product_collection_button_line_height = product_collection_button_font_size | times: 1.333 | round -%}
+    {%- assign product_collection_button_weight = button_weight -%}
+    {%- assign product_collection_button_transform = 'none' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h3 -%}
+    {%- assign home_sections_title_line_height = h3_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h3_letter_spacing -%}
+    {%- assign home_sections_title_weight = h3_weight -%}
+    {%- assign carousel_article_title_font_size = settings.font_size_h4 -%}
+    {%- assign carousel_article_title_line_height = h4_line_height -%}
+    {%- assign carousel_article_title_letter_spacing = h4_letter_spacing -%}
+    {%- assign carousel_article_title_weight = h4_weight -%}
+
+    {% capture rewrite_body %}
+    .popup-subscription--layout-04 {
+        .popup-subscription__text-line-01,
+        .popup-subscription__text-line-02,
+        .popup-subscription__text-line-03 {
+            font-weight: bold;
+        }
+    }
+    {% endcapture %}
+{%- elsif settings.typography_skin == 'skin-10' -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 0.866 | round -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_line_height = settings.font_size_h2 | times: 1 | round -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h5_letter_spacing = 0 -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign menu_title_transform = 'none' -%}
+    {%- assign vertical_menu_font_size = settings.font_size_h5 -%}
+    {%- assign vertical_menu_line_height = vertical_menu_font_size | times: 2.6 | round -%}
+    {%- assign vertical_menu_letter_spacing = 0 -%}
+    {%- assign vertical_menu_weight = 'bold' -%}
+    {%- assign vertical_menu_transform = 'none' -%}
+    {%- assign vertical_menu_icons_size = 20 -%}
+    {%- assign vertical_menu_button_font_size = settings.font_size_h5 -%}
+    {%- assign vertical_menu_button_line_height = vertical_menu_button_font_size | times: 1.066 | round -%}
+    {%- assign vertical_menu_button_weight = button_weight -%}
+    {%- assign product_page_title_weight = 'normal' -%}
+    {%- assign product_collection_title_weight = 'normal' -%}
+    {%- assign product_collection_button_weight = button_weight -%}
+    {%- assign product_price_weight = 'extra-bold' -%}
+{%- elsif settings.typography_skin == 'skin-11' -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign vertical_menu_icons_size = 4 -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h2 -%}
+    {%- assign home_sections_title_line_height = h2_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign home_sections_title_weight = h2_weight -%}
+{%- elsif settings.typography_skin == 'skin-12' -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 1.115 | round -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_line_height = settings.font_size_h2 | times: 1.3888 | round -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h4_line_height = settings.font_size_h4 | times: 1.579 | round -%}
+    {%- assign button_weight = 'bold' -%}
+    {%- assign menu_title_font_size = settings.font_size_h3 -%}
+    {%- assign menu_title_line_height = h3_line_height -%}
+    {%- assign menu_title_letter_spacing = h3_letter_spacing -%}
+    {%- assign menu_title_weight = h3_weight -%}
+    {%- assign menu_title_transform = 'none' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h2 -%}
+    {%- assign home_sections_title_line_height = h2_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign home_sections_title_weight = h2_weight -%}
+    {%- assign carousel_article_title_font_size = settings.font_size_h2 -%}
+    {%- assign carousel_article_title_line_height = h2_line_height -%}
+    {%- assign carousel_article_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign carousel_article_title_weight = h2_weight -%}
+    {%- assign product_collection_more_info_font_size = 15 -%}
+    {%- assign product_collection_more_info_line_height = product_collection_title_font_size | times: 1.466 | round  -%}
+    {%- assign product_collection_more_info_transform = 'uppercase' -%}
+    {%- assign product_collection_title_font_size = 19 -%}
+    {%- assign product_collection_title_line_height = product_collection_title_font_size | times: 1.157 | round  -%}
+    {%- assign product_collection_button_weight = button_weight -%}
+    {%- assign collection_head_title_font_size = settings.font_size_h2  -%}
+    {%- assign collection_head_title_line_height = h2_line_height -%}
+    {%- assign collection_head_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign collection_head_title_weight = h2_weight -%}
+    {%- assign footer_copyright_font_size = settings.font_size_body | times: 1 | round  -%}
+    {%- assign footer_copyright_line_height = footer_copyright_font_size | times: 1.632 | round -%}
+    {%- assign footer_menu_line_height = settings.font_size_body | times: 2.14 | round -%}
+    {%- assign footer_menu_transform = 'uppercase' -%}
+    {%- assign page_title_font_size = settings.font_size_h2 -%}
+    {%- assign page_title_line_height = h2_line_height -%}
+    {%- assign page_title_letter_spacing = h2_letter_spacing -%}
+{%- elsif settings.typography_skin == 'skin-13' -%}
+    {%- assign body_lg_font_size = settings.font_size_body | times: 1.5384 | round  -%}
+    {%- assign body_lg_line_height = body_lg_font_size | times: 1.5 | round  -%}
+    {%- assign h1_line_height = settings.font_size_h1 | times: 1.26 | round -%}
+    {%- assign h1_letter_spacing = 0 -%}
+    {%- assign h2_line_height = settings.font_size_h2 | times: 1.5 | round -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h5_letter_spacing = 0 -%}
+    {%- assign button_line_height = settings.font_size_button | times: 1 | round -%}
+    {%- assign button_letter_spacing = 0 -%}
+    {%- assign button_transform = 'none' -%}
+    {%- assign menu_line_height = menu_font_size | times: 1 | round -%}
+    {%- assign menu_letter_spacing = h3_letter_spacing -%}
+    {%- assign menu_transform = 'none' -%}
+    {%- assign menu_list_line_height = menu_list_font_size | times: 2 | round -%}
+    {%- assign menu_list_letter_spacing = h4_letter_spacing -%}
+    {%- assign product_price_family = settings.font_alternative.family -%}
+    {%- assign collection_head_title_family = settings.font_alternative.family -%}
+    {%- assign product_collection_title_font_size = settings.font_size_h4 -%}
+    {%- assign product_collection_title_line_height = h4_line_height -%}
+    {%- assign product_collection_title_letter_spacing = h4_letter_spacing -%}
+    {%- assign product_collection_title_weight = h4_weight -%}
+    {%- assign product_collection_button_font_size = settings.font_size_h3 -%}
+    {%- assign product_collection_button_line_height = h4_line_height -%}
+    {%- assign product_collection_button_letter_spacing = h4_letter_spacing -%}
+    {%- assign product_collection_button_transform = 'none' -%}
+    {%- assign product_page_title_family = settings.font_alternative.family -%}
+{%- elsif settings.typography_skin == 'skin-14' -%}
+    {%- assign h1_weight = 'bold' -%}
+    {%- assign h2_letter_spacing = 0 -%}
+    {%- assign h2_weight = 'bold' -%}
+    {%- assign h3_weight = 'bold' -%}
+    {%- assign h5_weight = 'bold' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h2 -%}
+    {%- assign home_sections_title_line_height = h2_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign home_sections_title_weight = h2_weight -%}
+    {%- assign product_price_weight = 'bold' -%}
+    {%- assign product_page_title_font_size = settings.font_size_h2 -%}
+    {%- assign product_page_title_line_height = h2_line_height -%}
+    {%- assign product_page_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign product_page_title_weight = h2_weight -%}
+    {%- assign collection_head_title_font_size = settings.font_size_h2  -%}
+    {%- assign collection_head_title_line_height = h2_line_height -%}
+    {%- assign collection_head_title_letter_spacing = h2_letter_spacing -%}
+    {%- assign collection_head_title_weight = h2_weight -%}
+    {%- assign page_title_font_size = settings.font_size_h2 -%}
+    {%- assign page_title_line_height = h2_line_height -%}
+    {%- assign page_title_letter_spacing = h2_letter_spacing -%}
+{%- elsif settings.typography_skin == 'skin-15' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h3 -%}
+    {%- assign home_sections_title_line_height = h3_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h3_letter_spacing -%}
+    {%- assign home_sections_title_weight = h3_weight -%}
+{%- elsif settings.typography_skin == 'skin-16' -%}
+    {%- assign home_sections_title_font_size = settings.font_size_h3 -%}
+    {%- assign home_sections_title_line_height = h3_line_height -%}
+    {%- assign home_sections_title_letter_spacing = h3_letter_spacing -%}
+    {%- assign home_sections_title_weight = h3_weight -%}
+{%- elsif settings.typography_skin == 'skin-18' -%}
+    {%- assign h1_letter_spacing = 0 -%}
+{%- endif -%}
+
+
+
+
+
+
+/* START: CUSTOM CHANGES */
+
+/* END: CUSTOM CHANGES */
+
+//base
+$base-family: {{ settings.font_base.family }}, {{ settings.font_base.fallback_families }};
+$base-style: {{ settings.font_base.style }};
+
+//alternative
+$alternative-family: {{ settings.font_alternative.family }}, {{ settings.font_alternative.fallback_families }};
+
+//body
+$body-size: {{ settings.font_size_body }}px;
+$body-line-height: {{ body_line_height }}px;
+$body-letter-spacing: {{ body_letter_spacing }}em;
+$body-weight: {{ settings.font_base.weight }};
+
+//body large
+$body-lg-size: {{ body_lg_font_size }}px;
+$body-lg-line-height: {{ body_lg_line_height }}px;
+$body-lg-letter-spacing: {{ body_lg_letter_spacing }}em;
+$body-lg-weight: {{ settings.font_base.weight }};
+
+//heading
+$heading-family: {% if settings.font_base_apply_to_all %}$base-family{% else %}{{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }}{% endif %};
+$heading-style: {{ settings.font_heading.style }};
+$heading-weight: {{ settings.font_heading.weight }};
+
+//h1
+$h1-size: {{ settings.font_size_h1 }}px;
+$h1-line-height: {{ h1_line_height }}px;
+$h1-letter-spacing: {{ h1_letter_spacing }}em;
+$h1-weight: {{ h1_weight }};
+
+//h2
+$h2-size: {{ settings.font_size_h2 }}px;
+$h2-line-height: {{ h2_line_height }}px;
+$h2-letter-spacing: {{ h2_letter_spacing }}em;
+$h2-weight: {{ h2_weight }};
+
+//h3
+$h3-size: {{ settings.font_size_h3 }}px;
+$h3-line-height: {{ h3_line_height }}px;
+$h3-letter-spacing: {{ h3_letter_spacing }}em;
+$h3-weight: {{ h3_weight }};
+
+//h4
+$h4-size: {{ settings.font_size_h4 }}px;
+$h4-line-height: {{ h4_line_height }}px;
+$h4-letter-spacing: {{ h4_letter_spacing }}em;
+$h4-weight: {{ h4_weight }};
+
+//h5
+$h5-size: {{ settings.font_size_h5 }}px;
+$h5-line-height: {{ h5_line_height }}px;
+$h5-letter-spacing: {{ h5_letter_spacing }}em;
+$h5-weight: {{ h5_weight }};
+
+//h6
+$h6-size: {{ settings.font_size_h6 }}px;
+$h6-line-height: {{ h6_line_height }}px;
+$h6-letter-spacing: {{ h6_letter_spacing }}em;
+$h6-weight: {{ h6_weight }};
+
+//icons
+$icons-size: {{ icons_size }}px;
+
+//list
+$list-size: {{ list_font_size }}px;
+$list-line-height: {{ list_line_height }}px;
+$list-letter-spacing: {{ list_letter_spacing }}em;
+$list-weight: {{ list_weight }};
+
+//large list
+$list-lg-size: {{ list_lg_font_size }}px;
+$list-lg-line-height: {{ list_lg_line_height }}px;
+$list-lg-letter-spacing: {{ list_lg_letter_spacing }}em;
+$list-lg-weight: {{ list_lg_weight }};
+
+//button
+$button-family: {% if settings.font_base_apply_to_all %}$base-family{% else %}{{ settings.font_button.family }}, {{ settings.font_button.fallback_families }}{% endif %};
+$button-style: {{ settings.font_button.style }};
+$button-size: {{ settings.font_size_button }}px;
+$button-line-height: {{ button_line_height }}px;
+$button-letter-spacing: {{ button_letter_spacing }}em;
+$button-weight: {{ button_weight }};
+$button-transform: {{ button_transform }};
+
+//input
+$input-size: {{ settings.font_size_input }}px;
+$input-line-height: {{ input_line_height }}px;
+$input-letter-spacing: {{ input_letter_spacing }}em;
+$input-weight: {{ input_weight }};
+$input-transform: {{ input_transform }};
+
+//header
+$header-button-cart-weight: {{ header_cart_weight }};
+
+//menu
+$menu-family:  {% if settings.font_base_apply_to_all %}$base-family{% else %}{{ settings.font_menu.family }}, {{ settings.font_menu.fallback_families }}{% endif %};
+$menu-style: {{ settings.font_menu.style }};
+$menu-size: {{ menu_font_size }}px;
+$menu-line-height: {{ menu_line_height }}px;
+$menu-letter-spacing: {{ menu_letter_spacing }}em;
+$menu-weight: {{ menu_weight }};
+$menu-transform: {{ menu_transform }};
+
+$menu-list-size: {{ menu_list_font_size }}px;
+$menu-list-line-height: {{ menu_list_line_height }}px;
+$menu-list-letter-spacing: {{ menu_list_letter_spacing }}em;
+$menu-list-weight: {{ menu_list_weight }};
+
+$menu-title-size: {{ menu_title_font_size }}px;
+$menu-title-line-height: {{ menu_title_line_height }}px;
+$menu-title-letter-spacing: {{ menu_title_letter_spacing }}em;
+$menu-title-weight: {{ menu_title_weight }};
+$menu-title-transform: {{ menu_title_transform }};
+
+$menu-main-mobile-size: {{ settings.font_size_menu_mobile }}px;
+$menu-main-mobile-line-height: {{ menu_main_mobile_line_height }}px;
+$menu-main-mobile-letter-spacing: {{ menu_main_mobile_letter_spacing }}em;
+$menu-main-mobile-weight: {{ menu_main_mobile_weight }};
+$menu-main-mobile-transform: {{ menu_main_mobile_transform }};
+
+$menu-secondary-mobile-size: {{ settings.font_size_menu_mobile }}px;
+$menu-secondary-mobile-line-height: {{ menu_secondary_mobile_line_height }}px;
+$menu-secondary-mobile-letter-spacing: {{ menu_secondary_mobile_letter_spacing }}em;
+$menu-secondary-mobile-weight: {{ menu_secondary_mobile_weight }};
+$menu-secondary-mobile-transform: {{ menu_secondary_mobile_transform }};
+
+$vertical-menu-size: {{ vertical_menu_font_size }}px;
+$vertical-menu-line-height: {{ vertical_menu_line_height }}px;
+$vertical-menu-letter-spacing: {{ vertical_menu_letter_spacing }}em;
+$vertical-menu-weight: {{ vertical_menu_weight }};
+$vertical-menu-transform: {{ vertical_menu_transform }};
+$vertical-menu-icons-size: {{ vertical_menu_icons_size }}px;
+
+$vertical-menu-button-size: {{ vertical_menu_button_font_size }}px;
+$vertical-menu-button-line-height: {{ vertical_menu_button_line_height }}px;
+$vertical-menu-button-letter-spacing: {{ vertical_menu_button_letter_spacing }}em;
+$vertical-menu-button-weight: {{ vertical_menu_button_weight }};
+$vertical-menu-button-icons-size: {{ vertical_menu_button_icons_size }}px;
+
+//home sections
+$home-sections-title-size: {{ home_sections_title_font_size }}px;
+$home-sections-title-line-height: {{ home_sections_title_line_height }}px;
+$home-sections-title-letter-spacing: {{ home_sections_title_letter_spacing }}em;
+$home-sections-title-weight: {{ home_sections_title_weight }};
+
+//product
+$product-price-family: {{ product_price_family }}, {{ settings.font_base.fallback_families }};
+$product-price-weight: {{ product_price_weight }};
+
+$product-page-title-family: {{ product_page_title_family }}, {{ settings.font_heading.fallback_families }};
+$product-page-title-size: {{ product_page_title_font_size }}px;
+$product-page-title-line-height: {{ product_page_title_line_height }}px;
+$product-page-title-letter-spacing: {{ product_page_title_letter_spacing }}em;
+$product-page-title-weight: {{ product_page_title_weight }};
+$product-page-title-transform: {{ product_page_title_transform }};
+$product-page-reviews-caption-transform: {{ product_page_reviews_caption_transform }};
+$product-page-options-label-transform: {{ product_page_options_label_transform }};
+$product-page-fields-label-transform: {{ product_page_fields_label_transform }};
+
+$product-collection-title-family: {{ product_collection_title_family }}, {{ settings.font_base.fallback_families }};
+$product-collection-title-size: {{ product_collection_title_font_size }}px;
+$product-collection-title-line-height: {{ product_collection_title_line_height }}px;
+$product-collection-title-letter-spacing: {{ product_collection_title_letter_spacing }}em;
+$product-collection-title-weight: {{ product_collection_title_weight }};
+$product-collection-more-info-size: {{ product_collection_more_info_font_size }}px;
+$product-collection-more-info-line-height: {{ product_collection_more_info_line_height }}px;
+$product-collection-more-info-letter-spacing: {{ product_collection_more_info_letter_spacing }}em;
+$product-collection-more-info-weight: {{ product_collection_more_info_weight }};
+$product-collection-more-info-transform: {{ product_collection_more_info_transform }};
+$product-collection-button-size: {{ product_collection_button_font_size }}px;
+$product-collection-button-line-height: {{ product_collection_button_line_height }}px;
+$product-collection-button-letter-spacing: {{ product_collection_button_letter_spacing }}em;
+$product-collection-button-weight: {{ product_collection_button_weight }};
+$product-collection-button-transform: {{ product_collection_button_transform }};
+
+//collection page
+$collection-head-title-family: {{ collection_head_title_family }}, {{ settings.font_base.fallback_families }};
+$collection-head-title-size: {{ collection_head_title_font_size }}px;
+$collection-head-title-line-height: {{ collection_head_title_line_height }}px;
+$collection-head-title-letter-spacing: {{ collection_head_title_letter_spacing }}em;
+$collection-head-title-weight: {{ collection_head_title_weight }};
+
+//article carousel
+$carousel-article-title-size: {{ carousel_article_title_font_size }}px;
+$carousel-article-title-line-height: {{ carousel_article_title_line_height }}px;
+$carousel-article-title-letter-spacing: {{ carousel_article_title_letter_spacing }}em;
+$carousel-article-title-weight: {{ carousel_article_title_weight }};
+
+//information line
+$information-line-type-1-title-size: {{ information_line_type_1_title_font_size }}px;
+$information-line-type-1-title-line-height: {{ information_line_type_1_title_line_height }}px;
+$information-line-type-1-title-letter-spacing: {{information_line_type_1_title_letter_spacing }}em;
+$information-line-type-1-title-weight: {{ information_line_type_1_title_weight }};
+
+$information-line-type-2-title-size: {{ information_line_type_2_title_font_size }}px;
+$information-line-type-2-title-line-height: {{ information_line_type_2_title_line_height }}px;
+$information-line-type-2-title-letter-spacing: {{information_line_type_2_title_letter_spacing }}em;
+$information-line-type-2-title-weight: {{ information_line_type_2_title_weight }};
+
+//footer
+$footer-copyright-size: {{ footer_copyright_font_size }}px;
+$footer-copyright-line-height: {{ footer_copyright_line_height }}px;
+$footer-menu-size: {{ footer_menu_font_size }}px;
+$footer-menu-line-height: {{ footer_menu_line_height }}px;
+$footer-menu-transform: {{ footer_menu_transform }};
+
+//page
+$page-title-size: {{ page_title_font_size }}px;
+$page-title-line-height: {{ page_title_line_height }}px;
+$page-title-letter-spacing: {{ page_title_letter_spacing }}em;
+
+//settings
+$screen-xs-down: 0;
+$screen-sm-down: 540px;
+$screen-md-down: 777px;
+$screen-lg-down: 1024px;
+$screen-xl-down: 1259px;
+
+$screen-xs-up: 0;
+$screen-sm-up: 541px;
+$screen-md-up: 778px;
+$screen-lg-up: 1025px;
+$screen-xl-up: 1260px;
+
+
+//body
+body,
+.promobox {
+     font-family: "Favorit", Sans-serif;
+  font-style: $base-style;
+  font-size: $body-size;
+  line-height: $body-line-height;
+  font-weight: $body-weight;
+  letter-spacing: $body-letter-spacing;
+}
+.ff-base {
+  font-family: $base-family;
+}
+.ff-alternative {
+  font-family: $alternative-family;
+}
+.fs, .paragraph {
+  font-size: $body-size !important;
+  line-height: $body-line-height !important;
+  letter-spacing: $body-letter-spacing !important;
+  font-weight: $body-weight !important;
+}
+.fs-lg, .paragraph-lg {
+  font-size: $body-lg-size !important;
+  line-height: $body-lg-line-height !important;
+  letter-spacing: $body-lg-letter-spacing !important;
+  font-weight: $body-lg-weight !important;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+     font-family: "Favorit", Sans-serif;
+  font-style: $heading-style;
+  font-weight: $heading-weight;
+}
+h1, .h1 {
+  font-size: $h1-size;
+  line-height: $h1-line-height;
+  letter-spacing: $h1-letter-spacing;
+  font-weight: $h1-weight;
+}
+h2, .h2 {
+  font-size: $h2-size;
+  line-height: $h2-line-height;
+  letter-spacing: $h2-letter-spacing;
+  font-weight: $h2-weight;
+}
+h3, .h3 {
+  font-size: $h3-size;
+  line-height: $h3-line-height;
+  letter-spacing: $h3-letter-spacing;
+  font-weight: $h3-weight;
+}
+h4, .h4 {
+  font-size: $h4-size;
+  line-height: $h4-line-height;
+  letter-spacing: $h4-letter-spacing;
+  font-weight: $h4-weight;
+}
+h5, .h5 {
+  font-size: $h5-size;
+  line-height: $h5-line-height;
+  letter-spacing: $h5-letter-spacing;
+  font-weight: $h5-weight;
+}
+h6, .h6 {
+  font-size: $h6-size;
+  line-height: $h6-line-height;
+  letter-spacing: $h6-letter-spacing;
+  font-weight: $h6-weight;
+}
+.h1-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h1-size;
+    line-height: $h1-line-height;
+    letter-spacing: $h1-letter-spacing;
+    font-weight: $h1-weight;
+  }
+}
+.h2-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h2-size;
+    line-height: $h2-line-height;
+    letter-spacing: $h2-letter-spacing;
+    font-weight: $h2-weight;
+  }
+}
+.h3-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h3-size;
+    line-height: $h3-line-height;
+    letter-spacing: $h3-letter-spacing;
+    font-weight: $h3-weight;
+  }
+}
+.h4-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+    letter-spacing: $h4-letter-spacing;
+    font-weight: $h4-weight;
+  }
+}
+.h5-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h5-size;
+    line-height: $h5-line-height;
+    letter-spacing: $h5-letter-spacing;
+    font-weight: $h5-weight;
+  }
+}
+.h6-sm {
+  @media (min-width: $screen-sm-up) {
+    font-size: $h6-size;
+    line-height: $h6-line-height;
+    letter-spacing: $h6-letter-spacing;
+    font-weight: $h6-weight;
+  }
+}
+ul, ol, .list {
+  font-size: $list-size;
+  line-height: $list-line-height;
+  letter-spacing: $list-letter-spacing;
+  font-weight: $list-weight;
+}
+.list-lg {
+  font-size: $list-lg-size;
+  line-height: $list-lg-line-height;
+  letter-spacing: $list-lg-letter-spacing;
+  font-weight: $list-lg-weight;
+}
+.ls-0 {
+  letter-spacing: 0;
+}
+.icon {
+  width: $icons-size;
+  min-width: $icons-size;
+  min-height: $icons-size;
+}
+.icon-fs-md > .icon {
+  width: 20px;
+  min-width: 20px;
+  min-height: 20px;
+}
+.icon-fs-lg > .icon {
+  width: 24px;
+  min-width: 24px;
+  min-height: 24px;
+}
+.icon-fs-37 > .icon {
+  width: 37px;
+  min-width: 37px;
+  min-height: initial;
+}
+.icon-fs-40 > .icon {
+  width: 40px;
+  min-width: 40px;
+  min-height: initial;
+}
+blockquote,
+blockquote p {
+  font-size: $h4-size;
+  line-height: $h4-line-height;
+  site {
+    font-size: $body-size;
+    line-height: $body-line-height;
+  }
+}
+.table, .responsive-table {
+  font-size: $body-size;
+  line-height: $body-line-height;
+  th {
+    font-weight: normal;
+  }
+}
+.select select {
+  line-height: 30px;
+}
+.note {
+  font-size: 11px;
+  line-height: 18px;
+}
+
+//button
+.btn,
+.spr-summary-actions-newreview,
+.spr-button,
+.dynamic-checkout__button--styled .shopify-payment-button__button {
+  font-family: $button-family;
+  font-size: $button-size;
+  line-height: $button-line-height;
+  font-style: $button-style;
+  letter-spacing: $button-letter-spacing;
+  font-weight: $button-weight;
+  text-transform: $button-transform;
+}
+
+//input
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select {
+  font-size: $input-size;
+  line-height: $input-line-height;
+  letter-spacing: $input-letter-spacing;
+  font-weight: $input-weight;
+  text-transform: $input-transform;
+}
+
+//revolution slider
+.tp-caption {
+  font-size: $body-size !important;
+  line-height: $body-line-height !important;
+}
+
+//spr
+.spr-icon {
+  font-size: 13px !important;
+}
+.spr-header-title,
+.spr-form-title {
+  font-size: $h4-size !important;
+  line-height: $h4-line-height;
+}
+.spr-review-header-title {
+  font-size: 15px;
+  line-height: 21px;
+}
+.spr-review-reportreview {
+  font-size: 13px !important;
+  line-height: 18px !important;
+}
+.spr-review-header-byline strong {
+  font-weight: normal;
+}
+
+//tippy
+.tippy-tooltip.shella-theme {
+  font-size: 11px;
+  line-height: 14px;
+}
+
+//inputs
+.select__dropdown span {
+  line-height: 23px;
+}
+
+//label
+.label {
+  font-size: $body-size;
+  line-height: 21px;
+}
+
+//range slider
+.irs-from,
+.irs-to,
+.irs-single,
+.irs-min,
+.irs-max {
+  font-size: $body-size;
+  line-height: 18px;
+}
+
+//breadcrumbs
+.breadcrumbs ul {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+//header
+.header__tape {
+  font-size: 18px;
+  line-height: 24px;
+}
+.header__tape-close .icon {
+  @media (max-width: $screen-lg-down) {
+    width: 36px;
+    min-width: 36px;
+    min-height: 32px;
+  }
+}
+.header__logo .text-hide {
+  line-height: 0;
+}
+.header__btn-cart span,
+.header__btn-currency span {
+  @media (min-width: $screen-lg-up) {
+    font-size: $body-size;
+    line-height: 21px;
+  }
+}
+.header__btn-cart {
+  font-weight: $header-button-cart-weight;
+}
+.header__btn-search {
+  span {
+    @media (min-width: $screen-lg-up) {
+      line-height: 14px;
+    }
+  }
+  .icon {
+    @media (min-width: $screen-lg-up) {
+      min-height: 21px;
+    }
+  }
+}
+.header__btn-menu,
+.header__btn-services,
+.header__btn-account,
+.header__btn-wishlist,
+.header__btn-compare,
+.header__btn-cart {
+  .icon {
+    @media (max-width: $screen-lg-down) {
+      width: 24px;
+      min-width: 24px;
+      min-height: 36px;
+    }
+  }
+}
+.header__dropdown {
+  a, span {
+    @media (max-width: $screen-lg-down) {
+      line-height: 31px;
+    }
+  }
+}
+
+//menu
+.menu {
+  @media (min-width: $screen-lg-up) {
+    font-family: $menu-family;
+    font-style: $menu-style;
+    font-weight: $menu-weight;
+  }
+}
+.menu-vertical-btn {
+  @media (min-width: $screen-lg-up) {
+    font-size: $vertical-menu-button-size;
+    line-height: $vertical-menu-button-line-height;
+    letter-spacing: $vertical-menu-button-letter-spacing;
+    font-weight: $vertical-menu-button-weight;
+  }
+  .icon {
+    width: $vertical-menu-button-icons-size;
+    min-width: $vertical-menu-button-icons-size;
+    min-height: $vertical-menu-button-icons-size;
+  }
+}
+.menu__item_icon {
+  width: $vertical-menu-icons-size;
+  min-width: $vertical-menu-icons-size;
+  min-height: $vertical-menu-icons-size;
+}
+.menu--main a {
+  @media (max-width: $screen-lg-down) {
+    line-height: $menu-main-mobile-line-height;
+  }
+}
+.menu--secondary a {
+  @media (max-width: $screen-lg-down) {
+    line-height: $menu-secondary-mobile-line-height;
+  }
+}
+.menu--main .menu__back > a,
+.menu--main .menu__item--has-children > a {
+  @media (max-width: $screen-lg-down) {
+    letter-spacing: $menu-main-mobile-letter-spacing;
+    text-transform: $menu-main-mobile-transform;
+  }
+}
+.menu--secondary .menu__back > a,
+.menu--secondary .menu__item--has-children > a {
+  @media (max-width: $screen-lg-down) {
+    letter-spacing: $menu-secondary-mobile-letter-spacing;
+    text-transform: $menu-secondary-mobile-transform;
+  }
+}
+.menu__list--styled .menu__item > a {
+  @media (min-width: $screen-lg-up) {
+    font-size: $menu-list-size;
+    line-height: $menu-list-line-height;
+    letter-spacing: $menu-list-letter-spacing;
+    font-weight: $menu-list-weight;
+  }
+}
+.menu:not(.menu--vertical) .menu__panel > .menu__item > a {
+  @media (min-width: $screen-lg-up) {
+    font-size: $menu-size;
+    line-height: $menu-line-height;
+    letter-spacing: $menu-letter-spacing;
+    font-weight: $menu-weight;
+    text-transform: $menu-transform;
+  }
+}
+.menu--vertical .menu__panel > .menu__item > a {
+  @media (min-width: $screen-lg-up) {
+    font-size: $vertical-menu-size;
+    line-height: $vertical-menu-line-height;
+    letter-spacing: $vertical-menu-letter-spacing;
+    font-weight: $vertical-menu-weight;
+    text-transform: $vertical-menu-transform;
+  }
+}
+.menu--main .menu__panel > .menu__item > a {
+  @media (max-width: $screen-lg-down) {
+    text-transform: $menu-main-mobile-transform;
+  }
+}
+.menu--secondary .menu__panel > .menu__item > a {
+  @media (max-width: $screen-lg-down) {
+    text-transform: $menu-secondary-mobile-transform;
+  }
+}
+.menu--main .menu__panel > .menu__item > a,
+.menu--main .menu__back > a {
+  @media (max-width: $screen-lg-down) {
+    font-size: $menu-main-mobile-size;
+    line-height: $menu-main-mobile-line-height;
+    letter-spacing: $menu-main-mobile-letter-spacing;
+    font-weight: $menu-main-mobile-weight;
+  }
+}
+.menu--secondary .menu__panel > .menu__item > a,
+.menu--secondary .menu__back > a {
+  @media (max-width: $screen-lg-down) {
+    font-size: $menu-secondary-mobile-size;
+    line-height: $menu-secondary-mobile-line-height;
+    letter-spacing: $menu-secondary-mobile-letter-spacing;
+    font-weight: $menu-secondary-mobile-weight;
+  }
+}
+.menu__title {
+  @media (min-width: $screen-lg-up) {
+    font-size: $menu-title-size;
+    line-height: $menu-title-line-height;
+    letter-spacing: $menu-title-letter-spacing;
+    font-weight: $menu-title-weight;
+    text-transform: $menu-title-transform;
+  }
+}
+.menu__label {
+  font-size: 9px;
+  line-height: 12px;
+}
+
+//slider
+.slider__prev,
+.slider__next {
+  .icon {
+    width: 40px;
+    min-width: 40px;
+  }
+}
+
+//countdown
+.countdown--type-01 {
+  .countdown__time,
+  .countdown__postfix {
+    font-size: 10px;
+    line-height: 13px;
+  }
+}
+.countdown--type-02 {
+  .countdown__time {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .countdown__postfix {
+    font-size: 10px;
+    line-height: 13px;
+  }
+}
+
+//visitors
+.visitors {
+  font-size: 15px;
+  line-height: 26px;
+}
+
+//material info
+.material-info {
+  .icon {
+    width: 23px;
+    min-width: 23px;
+    min-height: 23px;
+  }
+}
+.material-info__head-icons .icon {
+  width: 50px;
+  min-width: 50px;
+  min-height: 52px;
+}
+
+//tabs
+.tabs__btn {
+  font-size: $body-size;
+  line-height: 21px;
+  letter-spacing: $h5-letter-spacing;
+}
+
+//product
+.products-grid-buttons {
+  .icon {
+    width: 21px;
+    min-width: 21px;
+  }
+  .icon-theme-304,
+  .icon-theme-305 {
+    width: 20.5px;
+    min-width: 20.5px;
+  }
+  .icon-theme-323 {
+    width: 8px;
+    min-width: 8px;
+  }
+  .icon-theme-324 {
+    width: 13px;
+    min-width: 13px;
+  }
+  .icon-theme-325 {
+    width: 18px;
+    min-width: 18px;
+  }
+  .icon-theme-326 {
+    width: 28px;
+    min-width: 28px;
+  }
+  .icon-theme-327 {
+    width: 16px;
+    min-width: 16px;
+  }
+}
+.product-collection__more-info {
+  text-transform: $product-collection-more-info-transform;
+  font-size: $product-collection-more-info-size;
+  line-height: $product-collection-more-info-line-height;
+  letter-spacing: $product-collection-more-info-letter-spacing;
+  font-weight: $product-collection-more-info-weight;
+}
+.product-collection__title,
+.product-compare__title,
+.product-wishlist__title {
+  & > * {
+    font-family: $product-collection-title-family;
+    font-size: $product-collection-title-size;
+    line-height: $product-collection-title-line-height;
+    letter-spacing: $product-collection-title-letter-spacing;
+    font-weight: $product-collection-title-weight;
+  }
+}
+.product-collection__buttons-section,
+.product-wishlist__buttons-section,
+.product-compare__buttons-section {
+  .icon {
+    @media (max-width: $screen-lg-down) {
+      width: 24px;
+      min-width: 24px;
+    }
+  }
+}
+.product-collection__button-add-to-cart .btn,
+.product-compare__button-add-to-cart .btn,
+.product-wishlist__button-add-to-cart .btn,
+.carousel-articles__item .btn {
+  font-size: $product-collection-button-size;
+  line-height: $product-collection-button-line-height;
+  letter-spacing: $product-collection-button-letter-spacing;
+  font-weight: $product-collection-button-weight;
+  text-transform: $product-collection-button-transform;
+}
+.carousel-reviews__stars {
+  .icon {
+    width: 24px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+}
+.product-notification__content {
+  span {
+    font-size: 10px;
+  }
+  h3 {
+    letter-spacing: $body-letter-spacing;
+  }
+  h3, span {
+    line-height: 18px;
+  }
+}
+.product-notification__button-close .icon {
+  width: 14px;
+  min-width: 14px;
+  min-height: 14px;
+}
+.product-list__collections {
+  line-height: 18px;
+}
+.product-list__title > * {
+  @media (min-width: $screen-lg-up) {
+    font-size: $h4-size;
+  }
+  @media (max-width: $screen-lg-down) {
+    line-height: 18px;
+  }
+}
+
+//product-gallery
+.product-gallery__thumbnail_item--type-video .product-gallery__thumbnail_item_bg .icon {
+  width: 25px;
+  min-width: 25px;
+  min-height: 25px;
+}
+.product-gallery__control {
+  font-size: 10px;
+}
+
+//product-page-info
+.product-page-info__title > *,
+.one-product-info__title > * {
+  letter-spacing: $product-page-title-letter-spacing;
+  font-weight: $product-page-title-weight;
+  text-transform: $product-page-title-transform;
+  @media (min-width: $screen-lg-up) {
+    font-size: $product-page-title-size;
+    line-height: $product-page-title-line-height;
+  }
+  @media (max-width: $screen-lg-down) {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+  }
+}
+.product-page-info__details-buttons {
+  font-size: $body-size;
+  line-height: 14px;
+  letter-spacing: $h5-letter-spacing;
+}
+.product-page-info__price,
+.one-product-info__price {
+  .price {
+    font-size: 24px;
+  }
+  .price--sale > span:first-child {
+    font-size: 17px;
+  }
+}
+//one-product-info
+.one-product-info__details-buttons {
+  font-size: $body-size;
+  line-height: 14px;
+  letter-spacing: $h5-letter-spacing;
+}
+
+.product-page-info__title > *,
+.one-product-info__title > * {
+  font-family: $product-page-title-family;
+}
+.product-page-info__reviews .spr-badge-caption,
+.one-product-info__reviews .spr-badge-caption {
+  text-transform: $product-page-reviews-caption-transform;
+}
+.product-options--type-page label {
+  text-transform: $product-page-options-label-transform;
+}
+.product-page-info__field,
+.one-product-info__field {
+  label {
+    text-transform: $product-page-fields-label-transform;
+  }
+}
+.one-product__bg {
+  .one-product-info__title > * {
+    font-size: $h1-size;
+    line-height: $h1-line-height;
+    letter-spacing: $h1-letter-spacing;
+  }
+  .one-product-info__price {
+    .price {
+      font-size: 34px !important;
+    }
+    .price--sale > span:first-child {
+      font-size: 17px !important;
+    }
+  }
+}
+
+.products-view-list-xl .product-collection__title > * {
+  @media (min-width: $screen-xl-up) {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+  }
+}
+.products-view-list-lg .product-collection__title > * {
+  @media (min-width: $screen-lg-up) and (max-width: $screen-xl-down) {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+  }
+}
+.product-collection__list-v2-content {
+  .price {
+    font-size: 24px;
+  }
+  .price--sale > span:first-child {
+    font-size: 18px;
+  }
+}
+.col-6 > .product-collection .product-collection__button-add-to-cart .btn {
+  @media(max-width: 345px) {
+    font-size: 10px;
+  }
+}
+
+//price
+.price {
+      font-family: "Favorit", Sans-serif;
+  font-size: 17px;
+  font-weight: $product-price-weight;
+}
+.price--sale > span:first-child {
+  font-size: $body-size;
+}
+
+//product options
+.product-options__value--text,
+.product-options__value--large-text {
+  font-size: $body-size;
+  line-height: 18px;
+}
+.product-options--type-footbar .product-options__value--large-text {
+  @media (min-width: $screen-lg-up) {
+    line-height: 24px;
+  }
+}
+
+//collection
+.collection-head h1 {
+  font-family: $collection-head-title-family;
+  font-size: $collection-head-title-size;
+  line-height: $collection-head-title-line-height;
+  letter-spacing: $collection-head-title-letter-spacing;
+  font-weight: $collection-head-title-weight;
+}
+.collection-current-tags__items div {
+  line-height: 20px;
+}
+
+//home sections
+.home-section-title {
+  font-size: $home-sections-title-size;
+  line-height: $home-sections-title-line-height;
+  letter-spacing: $home-sections-title-letter-spacing;
+  font-weight: $home-sections-title-weight;
+}
+
+//carousel articles
+.carousel-articles__title {
+  font-size: $carousel-article-title-size;
+  line-height: $carousel-article-title-line-height;
+  letter-spacing: $carousel-article-title-letter-spacing;
+  font-weight: $carousel-article-title-weight;
+}
+
+//information line
+.information-line--type-1 .information-line__title {
+  font-size: $information-line-type-1-title-size;
+  line-height: $information-line-type-1-title-line-height;
+  letter-spacing: $information-line-type-1-title-letter-spacing;
+  font-weight: $information-line-type-1-title-weight;
+}
+.information-line--type-2 .information-line__title {
+  font-size: $information-line-type-2-title-size;
+  line-height: $information-line-type-2-title-line-height;
+  letter-spacing: $information-line-type-2-title-letter-spacing;
+  font-weight: $information-line-type-2-title-weight;
+}
+
+//popups
+//popup search
+.search input {
+  @media (min-width: $screen-lg-up) {
+    font-size: $h3-size;
+    line-height: $h3-line-height;
+  }
+  @media (max-width: $screen-lg-down) {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+  }
+}
+.search form label .icon {
+  @media (min-width: $screen-lg-up) {
+    width: 30px;
+    min-width: 30px;
+    min-height: 45px;
+  }
+}
+
+//popup account
+.popup-account__login ul {
+  font-size: $body-size;
+  line-height: $body-line-height;
+}
+
+//notifications
+//notification cookies
+.notification-cookies {
+  p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+.notification-cookies__button-close .icon {
+  width: 27px;
+  min-width: 27px;
+  min-height: 18px;
+}
+
+//social media
+.social-media {
+  .icon {
+    @media (min-width: $screen-lg-up) {
+      width: 12px;
+      min-width: 12px;
+    }
+    @media (max-width: $screen-lg-down) {
+      width: 16px;
+      min-width: 16px;
+    }
+  }
+  .icon-social-facebook {
+    @media (min-width: $screen-lg-up) {
+      width: 7px;
+      min-width: 7px;
+    }
+    @media (max-width: $screen-lg-down) {
+      width: 9px;
+      min-width: 9px;
+    }
+  }
+  .icon-social-google {
+    @media (min-width: $screen-lg-up) {
+      width: 16px;
+      min-width: 16px;
+    }
+    @media (max-width: $screen-lg-down) {
+      width: 24px;
+      min-width: 24px;
+    }
+  }
+  .icon-social-youtube {
+    @media (min-width: $screen-lg-up) {
+      width: 14px;
+      min-width: 14px;
+    }
+    @media (max-width: $screen-lg-down) {
+      width: 20px;
+      min-width: 20px;
+    }
+  }
+  .icon-social-behance {
+    @media (min-width: $screen-lg-up) {
+      width: 14px;
+      min-width: 14px;
+    }
+    @media (max-width: $screen-lg-down) {
+      width: 22px;
+      min-width: 22px;
+    }
+  }
+  .icon-fs-lg {
+    .icon {
+      @media (min-width: $screen-lg-up) {
+        width: 24px;
+        min-width: 24px;
+      }
+    }
+    .icon-social-facebook {
+      @media (min-width: $screen-lg-up) {
+        width: 12px;
+        min-width: 12px;
+      }
+    }
+    .icon-social-google {
+      @media (min-width: $screen-lg-up) {
+        width: 28px;
+        min-width: 28px;
+      }
+    }
+    .icon-social-youtube {
+      @media (min-width: $screen-lg-up) {
+        width: 26px;
+        min-width: 26px;
+      }
+    }
+    .icon-social-behance {
+      @media (min-width: $screen-lg-up) {
+        width: 26px;
+        min-width: 26px;
+      }
+    }
+  }
+  .icon-fs-md {
+    .icon {
+      @media (min-width: $screen-lg-up) {
+        width: 20px;
+        min-width: 20px;
+      }
+    }
+    .icon-social-facebook {
+      @media (min-width: $screen-lg-up) {
+        width: 8px;
+        min-width: 8px;
+      }
+    }
+    .icon-social-google {
+      @media (min-width: $screen-lg-up) {
+        width: 24px;
+        min-width: 24px;
+      }
+    }
+    .icon-social-youtube {
+      @media (min-width: $screen-lg-up) {
+        width: 22px;
+        min-width: 22px;
+      }
+    }
+    .icon-social-behance {
+      @media (min-width: $screen-lg-up) {
+        width: 22px;
+        min-width: 22px;
+      }
+    }
+  }
+}
+
+//social share
+.social-share {
+  .icon-social-facebook {
+    width: 11px;
+    min-width: 11px;
+  }
+  .icon-social-pinterest-2 {
+    width: 16px;
+    min-width: 16px;
+  }
+  .icon-social-buffer {
+    width: 18px;
+    min-width: 18px;
+  }
+}
+
+//footbar product
+.footbar-product__title > * {
+  font-size: 15px;
+  line-height: 22px;
+}
+.footbar-product__price {
+  line-height: 22px;
+  .price {
+    @media (max-width: $screen-lg-down) {
+      font-size: 24px;
+    }
+  }
+  .price--sale > span:first-child {
+    @media (max-width: $screen-lg-down) {
+      font-size: 17px;
+    }
+  }
+}
+
+//fixed sidebar
+.product-fixed-sizebar__line {
+  .icon {
+    min-height: 16px;
+  }
+}
+
+//layer navigation
+.layer-navigation__head > *,
+.layer-navigation__arrow {
+  line-height: 30px;
+}
+
+//information line
+.information-line .icon {
+  width: 30px;
+  min-width: 30px;
+}
+
+//blog
+.blog-sidebar__recents h5 {
+  letter-spacing: $body-letter-spacing;
+}
+
+//article
+.article  {
+  .rte {
+    ul, ol {
+      font-size: 20px !important;
+      line-height: 30px !important;
+    }
+  }
+  blockquote,
+  blockquote p {
+    font-size: $h3-size;
+    line-height: $h3-line-height;
+    site {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}
+.article__nav h4 {
+  letter-spacing: $body-letter-spacing;
+}
+.article-body h1 {
+  letter-spacing: $body-letter-spacing;
+}
+.article-text {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+//lookbool
+.lookbook__price {
+  .price {
+    font-size: $body-size;
+  }
+  .price--sale > span:first-child {
+    font-size: $body-size;
+  }
+}
+
+//footer
+.footer__copyright p {
+  font-size: $footer-copyright-size;
+  line-height: $footer-copyright-line-height;
+}
+.footer__menus {
+  text-transform: $footer-menu-transform;
+  a {
+    font-size: $footer-menu-size;
+    line-height: $footer-menu-line-height;
+  }
+}
+
+.page__title {
+  font-size: $page-title-size;
+  line-height: $page-title-line-height;
+  letter-spacing: $page-title-letter-spacing;
+}
+
+//gift card
+.giftcard__value {
+  font-size: 20px;
+  letter-spacing: 0;
+}
+.giftcard__code {
+  font-size: 25px;
+  line-height: 35px;
+  letter-spacing: 0.05em;
+}
+.giftcard__btn-print {
+  letter-spacing: 0.05em;
+}
+
+//rte
+.rte {
+  font-size: $body-lg-size;
+  line-height: $body-lg-line-height;
+  ul, ol {
+    font-size: $list-lg-size !important;
+    line-height: $list-lg-line-height !important;
+  }
+}
+
+.is-ios {
+  input,
+  textarea {
+    @media (max-width: $screen-lg-down) {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* CUSTOM CSS */
+//popup-subscription-confirmation
+.popup-subscription-confirmation__title-icon .icon {
+  width: 30px;
+  min-width: 30px;
+}
+//popup subscription
+.popup-subscription__title-icon .icon {
+  width: 30px;
+  min-width: 30px;
+}
+.popup-subscription--layout-01 {
+  .popup-subscription__text-line-01 {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+    letter-spacing: $h4-letter-spacing;
+  }
+}
+.popup-subscription--layout-02 {
+  .popup-subscription__text-line-01 {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+    letter-spacing: $h4-letter-spacing;
+  }
+  .popup-subscription__text-line-02 {
+    font-size: 50px;
+    line-height: 42px;
+    font-weight: bold;
+  }
+  .popup-subscription__text-line-03 {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+.popup-subscription--layout-03 {
+  .popup-subscription__text-line-01 {
+    font-size: $h4-size;
+    line-height: $h4-line-height;
+    letter-spacing: $h4-letter-spacing;
+  }
+  .popup-subscription__text-line-02 {
+    @media (min-width: $screen-md-up) {
+      font-size: 100px;
+      line-height: 82px;
+    }
+    @media (max-width: $screen-md-down) {
+      font-size: 50px;
+      line-height: 41px;
+    }
+  }
+  .popup-subscription__text-line-03 {
+    font-size: 15px;
+    line-height: 20px;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+.popup-subscription--layout-04 {
+  .popup-subscription__text-line-01 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .popup-subscription__text-line-02 {
+    @media (min-width: $screen-md-up) {
+      font-size: 110px;
+      line-height: 90px;
+    }
+    @media (max-width: $screen-md-down) {
+      font-size: 55px;
+      line-height: 45px;
+    }
+  }
+  .popup-subscription__text-line-03 {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+.popup-subscription--layout-05 {
+  .popup-subscription__text-line-01 {
+    @media (min-width: $screen-md-up) {
+      font-size: 62px;
+      line-height: 91px;
+    }
+    @media (max-width: $screen-md-down) {
+      font-size: 31px;
+      line-height: 45px;
+    }
+  }
+  .popup-subscription__text-line-02 {
+    @media (min-width: $screen-md-up) {
+      font-size: 110px;
+      line-height: 90px;
+    }
+    @media (max-width: $screen-md-down) {
+      font-size: 55px;
+      line-height: 45px;
+    }
+  }
+  .popup-subscription__text-line-03 {
+    font-size: 17px;
+    line-height: 22px;
+  }
+}
+.popup-age-confirmation__text-line-01 {
+  @media (min-width: $screen-sm-up) {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+.popup-age-confirmation__checkbox-text a {
+  text-decoration: underline;
+}
+.font-alternative-text [class*="promobox__text-"] {
+  font-family: $alternative-family;
+}
+.font-alternative-text-1 .promobox__text-1 {
+  font-family: $alternative-family;
+}
+.font-alternative-text-2 .promobox__text-2 {
+  font-family: $alternative-family;
+}
+.font-alternative-text-3 .promobox__text-3 {
+  font-family: $alternative-family;
+}
+.font-alternative-btn .btn {
+  font-family: $alternative-family;
+}
+.font-400-text [class*="promobox__text-"] {
+  font-weight: 400;
+}
+.font-400-text-1 .promobox__text-1 {
+  font-weight: 400;
+}
+.font-400-text-2 .promobox__text-2 {
+  font-weight: 400;
+}
+.font-400-text-3 .promobox__text-3 {
+  font-weight: 400;
+}
+.font-400-btn .btn {
+  font-weight: 400;
+}
+.font-700-text [class*="promobox__text-"] {
+  font-weight: 700;
+}
+.font-700-text-1 .promobox__text-1 {
+  font-weight: 700;
+}
+.font-700-text-2 .promobox__text-2 {
+  font-weight: 700;
+}
+.font-700-text-3 .promobox__text-3 {
+  font-weight: 700;
+}
+.font-700-btn .btn {
+  font-weight: 700;
+}
+.font-italic-text [class*="promobox__text-"] {
+  font-style: italic;
+}
+.font-italic-text-1 .promobox__text-1 {
+  font-style: italic;
+}
+.font-italic-text-2 .promobox__text-2 {
+  font-style: italic;
+}
+.font-italic-text-3 .promobox__text-3 {
+  font-style: italic;
+}
+.font-italic-btn .btn {
+  font-style: italic;
+}
+
+/********* updated css ************/
+
+.menu:not(.menu--vertical) .menu__panel > .menu__item > a {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #000 !important;
+}
+
+.header__logo.align-items-center.d-none.d-lg-flex.mr-lg-25 {
+    margin-right: 68px !important;
+}
+
+.menu:not(.menu--vertical) .menu__panel > .menu__item > a {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.header__logo.align-items-center.d-none.d-lg-flex.mr-lg-25 {
+    margin-right: 54px!important;
+}
+
+a.header__btn-search {
+    width: 190px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header__btn-currency span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+}
+
+
+.header__btn-currency {
+    margin-top: 0px !important;
+}
+
+
+.menu:not(.menu--vertical) .menu__panel>.menu__item>a {
+    font-weight: 500;
+
+}
+
+ul.list-unstyled.pb-15.pb-lg-0 li.py-5.py-lg-0 a {
+    font-weight: 500;
+
+}
+
+ul.list-unstyled.pb-15.pb-lg-0 li.py-5.py-lg-0 a {
+    line-height: 20px !important;
+}
+
+
+.menu:not(.menu--vertical) .menu__panel>.menu__item>a {
+    line-height: 20px;
+  
+}
+
+.menu:not(.menu--vertical) .menu__panel>.menu__item>a {
+    line-height: 20px;
+    letter-spacing: 0px;
+}
+
+.product-options--type-page label {
+    text-transform: capitalize;
+}
+
+
+{{ rewrite_body }}

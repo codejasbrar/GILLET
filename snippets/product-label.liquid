@@ -1,0 +1,200 @@
+{% assign prod_date = product.metafields.accentuate.product_date %}
+{% if prod_date %}
+
+<div class="comming-soon-inner">
+
+
+
+{% if prod_date != blank %}
+
+
+  {% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+  
+  {% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+  
+   {% if product.metafields.accentuate.product_date != blank %}
+  
+  {% if today_date > pre_date %}
+
+  {% else %}
+  
+
+
+  {% assign quick_turn = settings.quick_switch %}
+  {% assign switch_status = settings.switch_status %}
+		  {% if quick_turn == 'active' %}
+				  {% if switch_status == 'on' %}
+				  {% else %}
+				  
+					{% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+					{% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+										{% if product.metafields.accentuate.product_date != blank %}
+									  
+															{% if today_date > pre_date %}
+															{% else %}
+															  <span class="product-label soldout dfd com2"><span>Coming Soon</span></span>
+															{% endif %}
+										{% else %}
+										
+										{% endif %}
+				  {% endif %}
+		  {% else %}
+  
+					  {% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+					  
+					  {% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+  
+					   {% if product.metafields.accentuate.product_date != blank %}
+					  
+										  {% if today_date > pre_date %}
+
+										  {% else %}
+										  
+								  <span class="product-label soldout dfd com2.1"><span>Coming Soon</span></span>
+										  
+										  {% endif %}
+
+					  {% else %}
+					  
+					  
+					  {% endif %}
+					  
+          
+			{% endif %}
+  
+  {% endif %}
+
+  {% else %}
+  
+
+{% assign inv_mngmt_size = product.variants.first.inventory_management | size %}
+{% assign limit_as_int = settings.prod_stock_warn_limit_int | plus: 0 %}
+{% if product.compare_at_price_max > product.price and settings.label_sale_show %}
+    <span class="product-label sale"><span>{{ 'products.labels.sale' | t }}</span></span>
+{% elsif settings.label_remain_show and product.variants.size == 1 and inv_mngmt_size > 0 and product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity <= limit_as_int %}
+    <span class="product-label general"><span>{{ 'products.labels.only_x_left' | t: quantity: product.variants.first.inventory_quantity }}</span></span>
+{% else %}
+    {% if product.available == false and settings.label_soldout_show %}
+        <span class="product-label soldout dfd com3"><span>{{ 'products.labels.sold_out' | t }}</span></span>
+    {% else %}
+
+  {% assign quick_turn = settings.quick_switch %}
+  {% assign switch_status = settings.switch_status %}
+  {% if quick_turn == 'active' %}
+  {% if switch_status == 'on' %}
+  {% else %}
+  
+	{% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+	{% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+	{% if product.metafields.accentuate.product_date != blank %}
+  
+		{% if today_date > pre_date %}
+		{% else %}
+			<span class="product-label soldout dfd com4"><span>Coming Soon</span></span>
+		{% endif %}
+	{% else %}
+  {% endif %}
+  {% endif %}
+  {% else %}
+  
+  {% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+  
+  {% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+  
+   {% if product.metafields.accentuate.product_date != blank %}
+  
+  {% if today_date > pre_date %}
+
+  {% else %}
+  
+  <span class="product-label soldout dfd com5"><span>Coming Soon</span></span>
+  
+  {% endif %}
+
+  {% else %}
+  
+  
+  {% endif %}
+  
+          
+ {% endif %}
+          
+
+        {% for tag in product.tags %}
+            {% if tag contains 'meta-label-' %}
+                <span class="product-label general"><span>{{ tag | remove: 'meta-label-' }}</span></span>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+  
+  {% endif %}
+
+{% else %}
+
+{% assign inv_mngmt_size = product.variants.first.inventory_management | size %}
+{% assign limit_as_int = settings.prod_stock_warn_limit_int | plus: 0 %}
+{% if product.compare_at_price_max > product.price and settings.label_sale_show %}
+    <span class="product-label sale"><span>{{ 'products.labels.sale' | t }}</span></span>
+{% elsif settings.label_remain_show and product.variants.size == 1 and inv_mngmt_size > 0 and product.variants.first.inventory_quantity > 0 and product.variants.first.inventory_quantity <= limit_as_int %}
+    <span class="product-label general"><span>{{ 'products.labels.only_x_left' | t: quantity: product.variants.first.inventory_quantity }}</span></span>
+{% else %}
+    {% if product.available == false and settings.label_soldout_show %}
+        <span class="product-label soldout dfd"><span>{{ 'products.labels.sold_out' | t }}</span></span>
+    {% else %}
+
+  {% assign quick_turn = settings.quick_switch %}
+  {% assign switch_status = settings.switch_status %}
+  {% if quick_turn == 'active' %}
+  {% if switch_status == 'on' %}
+  {% else %}
+  
+	{% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+	{% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+	{% if product.metafields.accentuate.product_date != blank %}
+  
+		{% if today_date > pre_date %}
+		{% else %}
+			<span class="product-label soldout dfd com6"><span>Coming Soon</span></span>
+		{% endif %}
+	{% else %}
+  {% endif %}
+  {% endif %}
+  {% else %}
+  
+  {% assign today_date =  "now" | date: "%Y-%m-%d %H:%M" %}
+  
+  {% assign pre_date = product.metafields.accentuate.product_date | date: "%Y-%m-%d %H:%M" %}
+  
+   {% if product.metafields.accentuate.product_date != blank %}
+  
+  {% if today_date > pre_date %}
+
+  {% else %}
+  
+  <span class="product-label soldout dfd com7"><span>Coming Soon</span></span>
+  
+  {% endif %}
+
+  {% else %}
+  
+  
+  {% endif %}
+  
+          
+ {% endif %}
+          
+
+        {% for tag in product.tags %}
+            {% if tag contains 'meta-label-' %}
+                <span class="product-label general"><span>{{ tag | remove: 'meta-label-' }}</span></span>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% endif %}
+</div>
+
+{% endif %}

@@ -1,0 +1,215 @@
+{% include 'global-variables' %}
+<!--div class="page">
+  {% include 'breadcrumbs' %}
+  <div class="container {% if offset_pages_margin_top_d > 0 %} mt-lg-{{ offset_pages_margin_top_d }}{% endif %} pb-60{% if offset_pages_margin_bottom_d > 0 %} mb-lg-{{ offset_pages_margin_bottom_d }}{% endif %}">
+    <h1 class="page__title mt-30 text-center">{{ page.title }}</h1>
+    <div class="rte">
+      {% include 'parse-for-icons' content: page.content %}
+    </div>
+  </div>
+</div-->
+
+
+<style>
+  
+  .accordion_div{
+   width:30%;
+    float:left;
+    padding:20px; 
+  }
+  
+ .info-cover-img{
+  width:70%;
+   float:left;
+   
+ }  
+  
+  .elementor-tab-title {
+    margin: 0;
+    padding: 15px 15px !important;
+    font-weight: 700 !important;
+    line-height: 1;
+    cursor: pointer;
+    outline: none;
+} 
+  
+  .elementor-accordion-title {
+    font-family: "Favorit", Sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color:#000000;
+}
+  
+  .elementor-tab-content
+ {
+   
+  color: #000000;
+    font-family: "Favorit", Sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.4em;
+   
+ }  
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 0.9rem;
+}
+
+  .elementor-tab-content > ol {
+    color: #000000;
+    font-family: "Favorit", Sans-serif;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    line-height: 1.4em !important;
+    padding-left:16px;
+}
+ 
+@media screen and (max-width: 992px) {
+   
+  
+  .accordion_div{
+   width:100%;
+    padding:10px; 
+  }
+  
+ .info-cover-img{
+  width:100%;
+   
+ }  
+  .elementor-tab-title {
+    font-size: 16px !important;
+    padding: 10px 10px 10px 10px;
+     font-weight: 500 !important;
+  }  
+  
+  .elementor-accordion-title {
+    font-size: 16px;
+}
+ 
+ .elementor-tab-content {
+    font-size: 14px;
+    padding: 10px 10px 10px 10px;
+} 
+  
+  .elementor-tab-content > ol {
+    color: #000000;
+    font-family: "Favorit", Sans-serif;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.4em !important;
+    padding-left:16px;
+}
+  
+  
+}  
+  
+  
+  
+  .accordion {
+ margin: 0;
+/* padding:10px; */
+ 
+ text-decoration:none;
+ color: $color-body-text;
+ /*font-size:1em;*/
+ position:relative;
+}
+.accordion-open {
+ background:$settings-color-primary;
+ color: $color-body-text;
+}
+.accordion-open span {
+ display:block;
+ position:absolute;
+ right:3px;
+ top:25%;
+ padding:10px;
+}
+.accordion-open span {
+/* background:url('{{ 'minus.png' | asset_url }}') center center no-repeat; */
+ background:url('{{ 'arrow-up.png' | asset_url }}') center center no-repeat;
+   background-size: contain;
+}
+.accordion-close span {
+ display:block;
+ position:absolute;
+ right:5px;
+ top:25%;
+ /*background:url('{{ 'plus.png' | asset_url }}') center center no-repeat;*/
+ background:url('{{ 'arrow_down.png' | asset_url }}') center center no-repeat;
+ background-size: contain;
+ width:15px;
+ height:15px;  
+ 
+ }
+  
+ /* 
+.faq-header {
+ margin:3rem 0 1rem 0!important;
+}
+.faqpage div.container {
+ padding:0;
+ margin:0;
+}
+.faqpage div.container {
+ max-width:100%;
+ padding:5px 0;
+}
+.faqpage div.content {
+
+ margin: 0;
+ padding:10px;
+ font-size:.9em;
+ line-height:1.5em;
+}
+.faqpage div.content ul {
+ padding:0;
+ margin:0;
+ padding:3px;
+}
+.faqpage div.content p {
+ padding:0;
+ margin:3px 0 10px;
+ padding:3px;
+}
+.faqpage div.content ul li {
+ list-style-position:inside;
+ line-height:25px;
+}
+  
+*/  
+</style>  
+
+<div class="page-width">
+ <!--header class="section-header text-center">
+ <h1 class="section-header__title h2">{{ page.title }}</h1>
+ </header-->
+ <div class="breadcrumbs">
+ {% render 'breadcrumbs' %}
+ </div>
+ <div class="grid">
+ <div class="grid__item medium-up — four-fifths medium-up — push-one-tenth">
+ <div class="rte">
+ {{ page.content }}
+ <div class="faqpage">
+ {% section "info" %}
+ </div>
+ </div>
+ </div>
+</div>
+<script src="{{ 'jquery_3.4.1.js' | asset_url }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ 'jquery_accordion.js' | asset_url }}"></script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+$('.accordion').accordion({
+defaultOpen: '1',
+cookieName: 'accordion_nav'
+});
+});
+})(jQuery);
+</script>
+  
+  
+  

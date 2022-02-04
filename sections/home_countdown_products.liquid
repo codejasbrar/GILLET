@@ -1,0 +1,135 @@
+<section id="home_products">
+  <div class="styled-with">
+	
+  <div class="container1">
+  
+    
+    <div class="col-full-styled carousel-main">
+      
+      {% for block in section.blocks %}
+      
+      {% assign product_item = all_products[block.settings.product] %} 
+      
+      		<div class="styled-grid ">
+
+           <div class="styled-media styled_slider {{ forloop.index }}">
+              {% for product_image in product_item.images %}
+               <img src="{{ product_image.src | img_url: 'master' }}">
+              {% endfor %}
+             
+             
+            </div>
+
+            <a href="{{ product_item.url }}">
+              
+              <div class="styled-product-description">
+              <div class="product-title">
+                <p>{{ product_item.title }}</p>
+              </div>
+
+              <div class="product-price">
+                <p>{{ product_item.price | money }}</p>
+              </div>
+
+              </div>
+              
+            </a>
+              
+          </div>
+         {% endfor %}
+      </div>
+    
+  </div>
+
+</div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script>
+      
+$('.styled_slider').slick({
+  dots: true,
+  arrows:false,
+  infinite: false,
+   speed: 100,
+   autoplay: false,
+  slidesToShow: 1
+});
+   
+  
+    $('.carousel-main').slick({
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 4000,
+    dots:false,
+        infinite: false,
+      arrows:false,
+    responsive: [{
+      breakpoint: 1024,
+      settings: "unslick"
+
+    }, {
+      breakpoint: 800,
+      settings: "unslick"
+    },  {
+      breakpoint: 480,
+      settings: "unslick"
+    }]
+  });
+      
+ </script>
+
+<style>
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+div.styled-with .styled-grid .styled-media.styled_slider img{
+    padding: 20px 20px 0 20px;
+}
+.carousel-main .styled-grid{
+    width: 50% !important;
+    max-width: 50%;
+    flex: 0 0 50%; 
+    margin-bottom: 10px;
+}
+}
+@media only screen and (max-width: 480px){
+div.styled-with .styled-grid .styled-media.styled_slider img{
+    padding: 20px 20px 0 20px;
+}
+.carousel-main .styled-grid{
+    width: 50% !important;
+    max-width: 50%;
+    flex: 0 0 50%; 
+    margin-bottom: 10px;
+}
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Products",
+    "settings": [],
+  "blocks": [
+    {
+      "type": "Product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select product"
+        }
+      ]
+    }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

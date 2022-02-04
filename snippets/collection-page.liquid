@@ -1,0 +1,124 @@
+{% include 'global-variables' %}
+<div class="collections js-collections pb-10">
+    
+    {%- if settings.collection_enable_fullwidth_head_section -%}
+        {% section 'collection-fullwidth-head' %}
+    {%- endif -%}
+    {% capture collection_head_html %}
+        {% section 'collection-head' %}
+    {% endcapture %}
+    <div class="container1 mt-10 mt-lg-{{ offset_collection_page_content_margin_top_d }}">
+        <div class="row mb-40 mb-lg-{{ offset_collection_page_pagination_margin_bottom_d }}">
+           
+            <div class="collections__body col pb-25" data-js-collections-body>
+              <div class="row collectionheadsvm">
+                <div class="col-md-9">
+                  {{ collection_head_html }}
+                </div>
+                
+              </div>
+                
+                {%- assign collection_builder_mode_handle = settings.collection_builder_mode | replace: '|', '___' | handleize | split: '___' -%}
+                {%- if collection_builder_mode_handle contains collection.handle -%}
+                    {%- assign builder_mode = true -%}
+                {%- endif -%}
+                <div data-js-collection-replace="banner-builder" data-js-collection-replace-only-full{% unless builder_mode %} class="d-none-important"{% endunless %}>
+                    {%- if builder_mode -%}
+                        {% section 'collection-builder' %}
+                    {%- endif -%}
+                </div>
+                {% section 'collection-body' %}
+            </div>
+        </div>
+      
+      <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content animated" id="sidebarmodelcontent">
+    <div class="row">
+      <div class="col-md-10">Filter</div>
+      <div class="col-md-2"><span class="close">&times;</span></div>
+    </div>
+    
+    
+    
+    {%- if settings.collection_sidebar_position == 'dropdown' -%}
+                <div class="collections__sidebar d-none">
+                    {% section 'collection-sidebar' %}
+                </div>
+            {%- elsif settings.collection_sidebar_position == 'top' -%}
+                {%- if content_for_header contains 'Shopify.designMode' -%}
+                    {%- assign is_design_mode = true -%}
+                {%- endif -%}
+                <div class="collections__sidebar {% if is_design_mode %}w-100 mt-20{% else %}d-none{% endif %}">
+                    {% section 'collection-sidebar' %}
+                </div>
+            {%- elsif settings.collection_show_sidebar != 'hide' -%}
+                <div class="collections__sidebar collections__sidebar--width-md d-none col-auto d-lg-block{% if settings.collection_sidebar_position == 'right' %} order-2{% endif %}{% if settings.collection_enable_sticky %} sticky-sidebar js-sticky-sidebar{% endif %}">
+                    {%- if settings.collection_enable_sticky -%}
+                        <div data-js-sticky-sidebar-body>
+                    {%- endif -%}
+                            <div data-js-position-desktop="sidebar">
+                                {% section 'collection-sidebar' %}
+                            </div>
+                    {%- if settings.collection_enable_sticky -%}
+                        </div>
+                    {%- endif -%}
+                </div>
+            {%- endif -%}
+    
+    
+  </div>
+
+      
+      
+      
+    </div>
+    {%- if settings.collection_enable_product_carousel_section -%}
+        <div class="pb-60">
+            {% section 'carousel-products' %}
+        </div>
+    {%- endif -%}
+  
+  
+  
+<!-- The Modal -->
+
+</div>
+  
+  
+{%- if settings.collection_enable_sticky -%}
+    <script>
+        Loader.require({type: "script", name: "sticky_sidebar"});
+    </script>
+{%- endif -%}
+    <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+var sidebarmodelcontent = document.getElementById("sidebarmodelcontent");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+  sidebarmodelcontent.classList.add("transorm0");
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  sidebarmodelcontent.classList.remove("transorm0");
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    sidebarmodelcontent.classList.remove("transorm0");
+  }
+}
+</script>

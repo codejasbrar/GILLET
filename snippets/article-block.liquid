@@ -1,0 +1,73 @@
+{% assign mod4 = forloop.index | modulo: 4 %}
+{% assign mod3 = forloop.index | modulo: 3 %}
+{% assign mod2 = forloop.index | modulo: 2 %}
+<div class="article {{ article-block | default: 'flex column max-cols-4' }} {% if mod2 == 1 %} nth-2{% endif %}{% if mod3 == 1 %} nth-3{% endif %}{% if mod4 == 1 %} nth-4{% endif %}">
+
+  {% if article.image %}
+    {% if crop %}
+      <a href="{{ article.url }}" class="article-image">
+       
+        <img  id="article-featured-image" src="{{ article.image | img_url: 'large' }}" alt="{{ article.title | escape }}">
+      </a>
+    {% else %}
+      <a href="{{ article.url }}" class="article-image">
+        <img  id="article-featured-image" src="{{ article.image | img_url: 'large' }}" alt="{{ article.title | escape }}">
+        
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <div class="reading-column">
+    <h2 class="rem_mar a_space">{{ article.title | link_to: article.url }}</h2>
+
+    {% comment %}
+    
+      <div class="excerpt rte">
+      {{ article.excerpt_or_content | truncate: 20 }}
+    </div>
+    
+    {% endcomment %}
+    
+     <div class="excerpt rte border-bottom">
+      {{ article.content | truncate: 120 }}
+    </div>
+
+        {% comment %}
+    
+    {% if section.settings.show_meta_on_listing or section.settings.show_author %}
+    <div class="lightly-spaced-row">
+      {% if article-block contains 'full' and section.settings.show_author %}
+      <span class="gravatar">
+        <img src="//www.gravatar.com/avatar/{{ article.user.email | remove: ' ' | strip_newlines | downcase | md5 }}?d=https:{{ 'gravatar_def.png' | asset_url | url_param_escape }}" alt="{{ article.author }}" />
+      </span>
+      {% endif %}
+
+      <div class="article-meta">
+        {% if section.settings.show_meta_on_listing %}
+          {% assign published_at = article.published_at | date: format: 'month_date_year' %}
+          <div class="date">{{ 'blogs.article.posted_on_date' | t: date: published_at  }}</div>
+        {% endif %}
+        {% if section.settings.show_author %}<div class="author">{{ 'blogs.article.posted_by' | t: author: article.author  }}</div>{% endif %}
+        {% if article.comments_enabled? and article.comments_count > 0 and section.settings.show_meta_on_listing %}
+        <div class="comments-count">{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    
+    {% endcomment %}
+    
+    <div class="blog-meta">
+    
+    <div class="article-tags lightly-spaced-row">
+     <a class="more-link blo_cate" href="{{ blog.url }}">{{ blog.title }}</a>
+    </div>
+    {% comment %}
+    <a class="more-link" href="{{ article.url }}">{{ 'blogs.general.read_more' | t }}</a>
+      {% endcomment %}
+    <a class="more-link" href="{{ article.url }}">Read more</a>
+    </div>
+
+    
+  </div>
+</div>

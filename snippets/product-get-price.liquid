@@ -1,0 +1,5 @@
+{%- if compare_at_price > price -%}
+    <span class="price price--sale" data-js-product-price{% if settings.price_show_sale_separator %} data-js-show-sale-separator{% endif %}><span>{{ compare_at_price | money }}</span>{% if settings.price_show_sale_separator %}{{ 'products.product.price_sale_separator' | t }}{% endif %}<span>{{ price | money }}</span></span>
+{%- else -%}
+    <span class="price" data-js-product-price{% if settings.price_show_sale_separator %} data-js-show-sale-separator{% endif %}><span>{{ price | money }}</span></span>
+{%- endif -%}

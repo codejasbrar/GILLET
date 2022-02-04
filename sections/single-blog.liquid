@@ -1,0 +1,123 @@
+<style>
+  .half_image{
+    width:50%;
+    float:left;
+    padding:10px;
+  }
+  .blog-banner-img{
+   padding:20px; 
+  }
+</style>  
+
+<h1 class="page__title mt-30 text-left"> {{ section.settings.title }}</h1>
+  
+
+<div class="blog-banner-img">
+     <img class="img-fluid" src="{{ section.settings.banner_img | img_url: 'master' }}" alt="blog banner img">
+      <div class="banner-text">
+         {{ section.settings.banner_img_text }}
+      </div>
+</div>
+
+ <div class="container">
+      
+   <p>  {{ section.settings.content_text_1 }} </p>
+ 
+ </div>
+
+
+<div class="container">
+   <div class="half_image">
+     <img class="img-fluid" src="{{ section.settings.left_img_1 | img_url: 'master' }}" alt="blog banner img">
+  </div>
+  
+  <div class="half_image">
+     <img class="img-fluid" src="{{ section.settings.right_img_1 | img_url: 'master' }}" alt="blog banner img">
+  </div>
+  
+</div>  
+
+<div class="container">
+      
+   <p>  {{ section.settings.content_text_2 }} </p>
+ 
+ </div>
+
+
+<div class="container">
+   <div class="half_image">
+     <img class="img-fluid" src="{{ section.settings.left_img_2 | img_url: 'master' }}" alt="blog banner img">
+  </div>
+  
+  <div class="half_image">
+     <img class="img-fluid" src="{{ section.settings.right_img_2 | img_url: 'master' }}" alt="blog banner img">
+  </div>
+  
+</div>  
+
+
+
+{% schema %}
+  {
+    "name": "Blog",
+    "settings": [
+    {	
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_img",
+      "label": "Banner Image"
+    },
+    {	
+      "type": "text",
+      "id": "banner_img_text",
+      "label": "Banner Image Text"
+    },
+    {	
+      "type": "text",
+      "id": "content_text_1",
+      "label": "Content 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img_1",
+      "label": "Left Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_img_1",
+      "label": "Right Image 1"
+    },
+    {	
+      "type": "text",
+      "id": "content_text_2",
+      "label": "Content 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img_2",
+      "label": "Left Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_img_2",
+      "label": "Right Image 2"
+    }
+   ],
+    "presets": [
+        {
+            "name": "Single Blog",
+            "category": "3) Static content"
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

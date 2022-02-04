@@ -1,0 +1,304 @@
+<style>
+
+div#shopify-section-blog-body h3 {
+    color: #000000;
+    font-family: "Favorit", Sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+  
+/********** mobile ***************/
+
+
+@media only screen and (max-width: 769px) {
+  
+  .single_blog_inner_heading h3 {
+    text-align: center;
+    color: #000;
+    /*font-family: Roboto,Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 16px !important;
+    font-weight: 400;
+   /* line-height: 26px !important;
+    padding: 0 10px; */
+    line-height:1.3em
+  }
+  .single_blog_inner_heading {
+    margin: 0 0px 20px 0px !important;
+}
+  .single_blog_twoimage.first .col-md-6.padding10 {
+    width: 50%;
+}
+  #shopify-section-article-template .single_blog_heading {
+    margin: 0px 0 0 0;
+}
+  #shopify-section-article-template .container {
+    width: 100%;
+    /*padding-left: 20px;
+    padding-right: 20px;*/
+    margin-right: auto;
+    margin-left: auto;
+}
+  
+.single_blog_heading .heading_title {
+    color: #000;
+    /*font-family: Roboto,Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 16px !important;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 0;
+}
+  .single_blog_Tags p {
+    color: #000;
+    font-family: Roboto,Sans-serif;
+    font-size: 10px !important;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin: 0;
+}
+  .single_blog_description p {
+    color: #000;
+    /*font-family: Roboto,Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 10px !important;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin: 0 0 0px !important;
+}
+  .single_blog_Tags, .single_blog_description, .single_blog_twoimage {
+    margin: 0 0 0px 0 !important;
+    color:#000000;
+    font-size:12px;
+    line-height:1.3em;
+}
+  .blog-body h3 a {
+    color: #000;
+    /*font-family: Roboto,Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 14px;
+    line-height:14px;
+    font-weight: 600;
+}
+  .blog-body p {
+    /*font-family: Roboto,Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0;
+    color: #7a7a7a!important;
+}
+  
+  .container.blog-container {
+    max-width: 100%;
+    padding: 0 20px !important;
+}
+  .blog-body .row{
+  	display:block !important;
+  }  
+  
+  
+  
+}
+  
+@media (min-width: 541px){
+#shopify-section-article-template .container {
+    max-width: 100%;
+}  
+}  
+  
+  
+.single_blog_heading{
+    margin: 50px 0px 0px 0px;
+  	
+}
+.single_blog_heading .heading_title{
+    color: #000000;
+    /*font-family: "Roboto", Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+  	margin:0;
+  	line-height: 1;
+}
+.single_blog_description, .single_blog_twoimage, .single_blog_Tags{
+    margin: 0px 0px 20px 0px;
+    color:#000000;
+}
+.single_blog_Tags p{
+  	color: #000000;
+    /*font-family: "Roboto", Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3em;
+  	margin: 0;
+}
+.single_blog_description p{
+  	color: #000000;
+    /*font-family: "Roboto", Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3em;
+  	margin: 0 0 20px;
+}
+.single_blog_inner_heading{
+  	margin: 0px 0150px 20px 150px;
+}
+.single_blog_inner_heading h3{
+  	text-align: center;
+    color: #000000;
+    /*font-family: "Roboto", Sans-serif;*/
+    font-family: "Favorit", Sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.3em;
+  	margin: 0;
+}  
+ 
+ 
+  
+.single_blog_heading .heading_title{
+ padding-left:16px; 
+}
+</style>
+
+  
+  {% comment %}
+   	HEADING SECTION    
+  {% endcomment %}
+  <section class="single_blog_heading padding10">
+    <div class="row">
+      	<div class="col-md-12 m-0 p-0">
+        	<!--h2 class="heading_title">{{article.metafields.accentuate.mainheading}}</h2-->
+            <h2 class="heading_title">{{ article.title }}</h2>
+      	</div>
+    </div>
+  </section>
+
+ <div class="container">
+ 
+  
+  {% comment %}
+   	BANNER IMAGE SECTION    
+  {% endcomment %}
+  <section class="single_blog_banner 1padding10">
+    <div class="row">
+      	<div class="col-md-12 m-0 p-0">
+        	<img src="{{article.metafields.accentuate.image}}">
+            {% comment %}
+                {%- if article.image -%}
+                   <a href="{{ article.url }}" class="d-block mt-25 overflow-hidden">
+                        {% render 'rimage' with image: article.image size: '1024x' format: 'pjpg' alt: article.title attr: 'class="w-100"' %}
+                   </a>
+                {%- endif -%}
+            {% endcomment %}
+      	</div>
+    </div>
+  </section>
+  
+  
+  {% comment %}
+   	TAG SECTION    
+  {% endcomment %}
+  <section class="single_blog_Tags padding10">
+    <div class="row">
+      	<div class="col-md-12 m-0 p-0">
+          <p>{{ article.published_at | time_tag: format: 'month_day_year' }} | {{ article.author }} | {{ blog.title }}</p>
+      	</div>
+    </div>
+  </section>
+  
+  
+  {% comment %}
+   	DESCRIPTION SECTION    
+  {% endcomment %}
+  <section class="single_blog_description padding10">
+    <div class="row">
+      	<div class="col-md-12 m-0 p-0">
+            {% comment %}
+        	{{article.metafields.accentuate.description_text}}
+            {% endcomment %}
+            {{ article.content }}
+      	</div>
+    </div>
+  </section>
+  
+  {% comment %}
+   	Two Image SECTION    
+  {% endcomment %}
+  <section class="single_blog_twoimage first">
+    <div class="row">
+        <div class="col-md-6 padding10">
+            <img src="{{article.metafields.accentuate.leftimage}}">
+          </div>
+           <div class="col-md-6 padding10">
+            <img src="{{article.metafields.accentuate.rightimage}}">
+          </div>
+    </div>
+  </section>
+  
+  
+  
+  {% comment %}
+   	INNER HEADING SECTION    
+  {% endcomment %}
+  <section class="single_blog_inner_heading padding10">
+    <div class="row">
+      	<div class="col-md-12 m-0 p-0">
+        	<h3>{{article.metafields.accentuate.heading}}</h3>
+      	</div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  {% comment %}
+   	Two Image SECTION    
+  {% endcomment %}
+  <section class="single_blog_twoimage">
+    <div class="row">
+        <div class="col-md-6 padding10">
+            <img src="{{article.metafields.accentuate.secondleftimage}}">
+        </div>
+        <div class="col-md-6 padding10">
+            <img src="{{article.metafields.accentuate.secondrightimage}}">
+        </div>
+    </div>
+  </section>
+  
+</div>
+
+
+{% schema %}
+  {
+    "name": "Article pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_feat_image",
+        "label": "Show featured image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tags",
+        "label": "Show tags",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_author",
+        "label": "Show author",
+        "default": true
+      }
+	]
+  }
+{% endschema %}

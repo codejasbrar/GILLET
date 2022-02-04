@@ -1,0 +1,220 @@
+<section id="countdown_section">
+  <div class="row m-0">
+   <div class="col-md-12 p-0 countdown_main">
+     <div class="count_bg_video">
+      <video width="100%" height="600" preload="auto" controls="false" playsinline muted autoplay loop>
+           <source src="{{ section.settings.video_url }}" type="video/mp4">
+          Your browser does not support the video tag. 
+      </video>
+     </div>
+     <div class="countdown_content text-center">
+      <p>{{ section.settings.title }}</p>
+      <h1><span class="real_day realday">85</span>:<span class="real_day real_hour">22</span>:<span class="real_day real_min">54</span>:<span class="real_day real_sec">13</span>:<span class="real_day real_millisec">13</span></h1>
+      <p>LAUNCHING {{ section.settings.launching_date }}​</p>
+       <p><a href="{{ section.settings.discover_url }}">{{ section.settings.discover_text }}&nbsp <i class="fa fa-angle-right"></i></a></p>
+     </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  
+  	
+       // Set the date we're counting down to
+  var countDownDate = new Date("{{ section.settings.launching_time }}").getTime();
+
+  
+                                 
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    var seconds_milli = Math.floor((distance % (1000 * 60)) / 100);
+    var milliseconds = distance % seconds_milli;
+     
+    if(seconds < 10){
+    var t_seconds = "0" + seconds;
+} else {
+    var t_seconds = seconds;
+}
+    if(milliseconds < 100){
+    var t_milliseconds = "0" + milliseconds;
+} else if(milliseconds < 10) {
+    var t_milliseconds = "00" + milliseconds;
+} else if(milliseconds == 0) {
+    var t_milliseconds = "000";
+} else{
+    var t_milliseconds = milliseconds;
+}
+    // Output the result in an element with id="demo"
+      
+    
+    
+    $(".real_day").html(days);
+    $(".real_hour").html(hours);
+    $(".real_min").html(minutes);
+    $(".real_sec").html(t_seconds);
+    $(".real_millisec").html(t_milliseconds);
+    
+     
+     
+      
+       
+  if(countDownDate > 0 ){
+    
+    console.log(2);
+ 
+    
+     $(".timer_class").addClass("show");
+     $(".timer_class").removeClass("hide");
+     $(".no_timer_class").addClass("hide");
+     $(".no_timer_class").removeClass("show");
+    
+      if (distance < 0) {
+
+      clearInterval(x);
+
+        $(".timer_class").removeClass("show");
+        $(".timer_class").addClass("hide");
+        $(".no_timer_class").addClass("show");
+        $(".no_timer_class").removeClass("hide");
+
+    }
+    
+  
+  } else {
+    
+       $(".timer_class").removeClass("show");
+        $(".timer_class").addClass("hide");
+        $(".no_timer_class").addClass("show");
+        $(".no_timer_class").removeClass("hide");
+
+  }
+      
+   
+
+    
+  
+    
+}, 10);
+  
+var video = document.querySelector('video');
+video.muted = true;
+video.play()
+
+</script>
+
+<style>
+.countdown_content h1 span:last-child{
+    width: 130px;
+    display: inline-block;
+}
+.countdown_content h1{
+    font-size: 70px;
+    line-height: 105px;
+    font-weight: 600;
+    font-family: Favorit,sans-serif;
+    margin-bottom: 0;
+    color: #fff;
+}
+.countdown_content p a i{
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+}
+.countdown_content p a{
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff;
+    text-transform: initial;
+}
+.countdown_content p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-family: Favorit,sans-serif;
+    font-weight: 400;
+    margin-bottom: 0.9rem;
+}
+.countdown_content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+}
+.count_bg_video video{
+  object-fit: cover;
+  height: 100vh;
+}
+  @media only screen and (max-width: 480px){
+  div.countdown_content h1 span:last-child{
+    width: 60px;
+  }
+  div.countdown_content p{
+    margin-bottom: 0;
+  }
+  div.countdown_content h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  }
+</style>
+
+
+{% schema %}
+  {
+    "name": "Countdown section",
+    "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "launching_time",
+          "label": "Launching time",
+          "info": " Update time like :-  Jan 5, 2023 15:37:25"
+        },
+        {
+          "type": "text",
+          "id": "launching_date",
+          "label": "Launching date"
+        },
+        {
+          "type": "url",
+          "id": "discover_url",
+          "label": "Discover Url"
+        },
+        {
+          "type": "text",
+          "id": "discover_text",
+          "label": "Discover Text"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Enter video url"
+        }
+               ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
